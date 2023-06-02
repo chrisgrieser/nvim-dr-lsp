@@ -70,13 +70,13 @@ function M.statusline()
 		defs = defs .. "D"
 	end
 	if lspCount.refWorkspace then
-		refs = " 󰄾 " .. tostring(lspCount.refFile)
+		refs = tostring(lspCount.refFile)
 		if lspCount.refFile ~= lspCount.refWorkspace then
 			refs = refs .. "(" .. tostring(lspCount.refWorkspace) .. ")"
 		end
 		refs = refs .. "R"
 	end
-	return "󰈿 " .. defs .. refs
+	return "LSP: " .. defs .. " " .. refs
 end
 
 --------------------------------------------------------------------------------

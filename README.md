@@ -13,7 +13,7 @@ Status line component showing the number of LSP __d__efinition and __r__eference
 ## Information Shown
 
 ```text
-󰈿 1(2)D 󰄾 4(10)R
+LSP: 1(2)D 4(10)R
 ```
 
 - 1 definition in the current buffer
