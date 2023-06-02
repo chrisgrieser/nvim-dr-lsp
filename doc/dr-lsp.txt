@@ -24,7 +24,7 @@ __r__eference of the token under the cursor.
 INFORMATION SHOWN                       *dr-lsp-nvim-dr-lsp-information-shown*
 
 >text
-    󰈿 1(2)D 󰄾 4(10)R
+    LSP: 1(2)D 4(10)R
 <
 
 - 1 definition in the current buffer
