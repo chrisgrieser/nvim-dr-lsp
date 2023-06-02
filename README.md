@@ -4,9 +4,22 @@ Status line component showing the number of LSP __d__efinition and __r__eference
 <!-- LTeX: enabled=true --><!-- vale on -->
 
 <!--toc:start-->
+- [Information Shown](#information-shown)
 - [Installation](#installation)
+- [Similar Plugins](#similar-plugins)
 - [Credits](#credits)
 <!--toc:end-->
+
+## Information Shown
+
+```text
+󰈿 1(2)D 󰄾 4(10)R
+```
+
+- 1 definition in the current buffer
+- 2 definitions in the workspace
+- 4 references in the current buffer
+- 10 definitions in the workspace
 
 ## Installation
 

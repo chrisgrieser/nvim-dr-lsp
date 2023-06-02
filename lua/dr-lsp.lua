@@ -74,7 +74,7 @@ function M.statusline()
 		if lspCount.refFile ~= lspCount.refWorkspace then
 			refs = refs .. "(" .. tostring(lspCount.refWorkspace) .. ")"
 		end
-		defs = defs .. "R"
+		refs = refs .. "R"
 	end
 	return "󰈿 " .. defs .. refs
 end
