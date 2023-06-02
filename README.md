@@ -3,14 +3,16 @@
 Status line component showing the number of LSP __d__efinition and __r__eference of the token under the cursor.
 <!-- LTeX: enabled=true --><!-- vale on -->
 
-<!--toc:start-->
-- [Information Shown](#information-shown)
-- [Installation](#installation)
-- [Similar Plugins](#similar-plugins)
-- [Credits](#credits)
-<!--toc:end-->
+![CleanShot 2023-06-02 at 14 25 15@2x](https://github.com/chrisgrieser/nvim-dr-lsp/assets/73286100/8c6600c8-b16d-434f-8bdb-47b4a9dab7cb)
 
 ## Information Shown
+
+### All definitions and references occur inside the current buffer
+```text
+LSP: 2D 6R
+```
+
+### Definitions or references outside the current buffer
 
 ```text
 LSP: 1(2)D 4(10)R
