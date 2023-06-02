@@ -1,11 +1,11 @@
-# {{plugin-name}}
-{{plugin-desc}}
+<!-- LTeX: enabled=false --><!-- vale off -->
+# nvim-dr-lsp
+Status line component showing LSP `d`efinitions and `r`eferences of the token under the cursor.
+<!-- LTeX: enabled=true --><!-- vale on -->
 
 <!--toc:start-->
 - [Features](#features)
 - [Installation](#installation)
-- [Configuration](#configuration)
-- [Limitations](#limitations)
 - [Credits](#credits)
 <!--toc:end-->
 
@@ -15,24 +15,15 @@
 
 ```lua
 -- lazy.nvim
-{
-	"chrisgrieser/{{plugin-name}}",
-	opts = {
-		
-	},
-},
+{ "chrisgrieser/nvim-dr-lsp" },
 
 -- packer
-use {
-	"chrisgrieser/{{plugin-name}}",
-	config = function () 
-		require("{{plugin-name-short}}").setup ({
-			
-		})
-	end,
-}
+use { "chrisgrieser/nvim-dr-lsp" }
 ```
 
+There are currently no configurations yet.
+
+<!--
 ## Configuration
 
 ```lua
@@ -43,6 +34,10 @@ opts = {
 ```
 
 ## Limitations
+-->
+
+## Similar Plugins
+- [LSP-Lens](https://github.com/VidocqH/lsp-lens.nvim): Also shows definition & reference counts but as virtual lines.
 
 ## Credits
 <!-- vale Google.FirstPerson = NO -->
