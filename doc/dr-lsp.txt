@@ -4,6 +4,7 @@
 Table of Contents                                   *dr-lsp-table-of-contents*
 
 1. nvim-dr-lsp                                            |dr-lsp-nvim-dr-lsp|
+  - Information Shown                   |dr-lsp-nvim-dr-lsp-information-shown|
   - Installation                             |dr-lsp-nvim-dr-lsp-installation|
   - Similar Plugins                       |dr-lsp-nvim-dr-lsp-similar-plugins|
   - Credits                                       |dr-lsp-nvim-dr-lsp-credits|
@@ -14,8 +15,22 @@ Table of Contents                                   *dr-lsp-table-of-contents*
 Status line component showing the number of LSP __d__efinition and
 __r__eference of the token under the cursor.
 
+- |dr-lsp-information-shown|
 - |dr-lsp-installation|
+- |dr-lsp-similar-plugins|
 - |dr-lsp-credits|
+
+
+INFORMATION SHOWN                       *dr-lsp-nvim-dr-lsp-information-shown*
+
+>text
+    󰈿 1(2)D 󰄾 4(10)R
+<
+
+- 1 definition in the current buffer
+- 2 definitions in the workspace
+- 4 references in the current buffer
+- 10 definitions in the workspace
 
 
 INSTALLATION                                 *dr-lsp-nvim-dr-lsp-installation*
