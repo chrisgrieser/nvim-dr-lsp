@@ -1,15 +1,12 @@
 <!-- LTeX: enabled=false --><!-- vale off -->
 # nvim-dr-lsp
-Status line component showing LSP `d`efinitions and `r`eferences of the token under the cursor.
+Status line component showing the number of LSP __d__efinition and __r__eference of the token under the cursor.
 <!-- LTeX: enabled=true --><!-- vale on -->
 
 <!--toc:start-->
-- [Features](#features)
 - [Installation](#installation)
 - [Credits](#credits)
 <!--toc:end-->
-
-## Features
 
 ## Installation
 
@@ -19,6 +16,17 @@ Status line component showing LSP `d`efinitions and `r`eferences of the token un
 
 -- packer
 use { "chrisgrieser/nvim-dr-lsp" }
+```
+
+```lua
+-- adding the component to lualine.nvim
+{
+	sections = {
+		lualine_c = {
+			{ require("dr-lsp").statusline },
+		},
+	}
+}
 ```
 
 There are currently no configurations yet.
