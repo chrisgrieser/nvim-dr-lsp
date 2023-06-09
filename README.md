@@ -1,5 +1,5 @@
 <!-- LTeX: enabled=false --><!-- vale off -->
-# nvim-dr-lsp
+# nvim-dr-lsp 👩‍⚕️
 Status line component showing the number of LSP __d__efinition and __r__eference of the token under the cursor.
 <!-- LTeX: enabled=true --><!-- vale on -->
 
