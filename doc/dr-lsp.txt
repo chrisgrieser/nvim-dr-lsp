@@ -1,22 +1,22 @@
-*dr-lsp.txt*             For NVIM v0.8.0             Last change: 2023 June 02
+*dr-lsp.txt*             For NVIM v0.8.0             Last change: 2023 June 09
 
 ==============================================================================
 Table of Contents                                   *dr-lsp-table-of-contents*
 
-1. nvim-dr-lsp                                            |dr-lsp-nvim-dr-lsp|
-  - Information Shown                   |dr-lsp-nvim-dr-lsp-information-shown|
-  - Installation                             |dr-lsp-nvim-dr-lsp-installation|
-  - Similar Plugins                       |dr-lsp-nvim-dr-lsp-similar-plugins|
-  - Credits                                       |dr-lsp-nvim-dr-lsp-credits|
+1. nvim-dr-lsp ‍                                    |dr-lsp-nvim-dr-lsp-‍|
+  - Information Shown               |dr-lsp-nvim-dr-lsp-‍-information-shown|
+  - Installation                         |dr-lsp-nvim-dr-lsp-‍-installation|
+  - Similar Plugins                   |dr-lsp-nvim-dr-lsp-‍-similar-plugins|
+  - Credits                                   |dr-lsp-nvim-dr-lsp-‍-credits|
 
 ==============================================================================
-1. nvim-dr-lsp                                            *dr-lsp-nvim-dr-lsp*
+1. nvim-dr-lsp ‍                                    *dr-lsp-nvim-dr-lsp-‍*
 
 Status line component showing the number of LSP __d__efinition and
 __r__eference of the token under the cursor.
 
 
-INFORMATION SHOWN                       *dr-lsp-nvim-dr-lsp-information-shown*
+INFORMATION SHOWN                   *dr-lsp-nvim-dr-lsp-‍-information-shown*
 
 
 ALL DEFINITIONS AND REFERENCES OCCUR INSIDE THE CURRENT BUFFER ~
@@ -38,7 +38,7 @@ DEFINITIONS OR REFERENCES OUTSIDE THE CURRENT BUFFER ~
 - 10 definitions in the workspace
 
 
-INSTALLATION                                 *dr-lsp-nvim-dr-lsp-installation*
+INSTALLATION                             *dr-lsp-nvim-dr-lsp-‍-installation*
 
 >lua
     -- lazy.nvim
@@ -62,12 +62,12 @@ INSTALLATION                                 *dr-lsp-nvim-dr-lsp-installation*
 There are currently no configurations yet.
 
 
-SIMILAR PLUGINS                           *dr-lsp-nvim-dr-lsp-similar-plugins*
+SIMILAR PLUGINS                       *dr-lsp-nvim-dr-lsp-‍-similar-plugins*
 
 - LSP-Lens <https://github.com/VidocqH/lsp-lens.nvim>Also shows definition & reference counts but as virtual lines.
 
 
-CREDITS                                           *dr-lsp-nvim-dr-lsp-credits*
+CREDITS                                       *dr-lsp-nvim-dr-lsp-‍-credits*
 
 **About Me** In my day job, I am a sociologist studying the social mechanisms
 underlying the digital economy. For my PhD project, I investigate the
