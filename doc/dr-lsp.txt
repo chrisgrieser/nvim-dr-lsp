@@ -1,4 +1,4 @@
-*dr-lsp.txt*             For NVIM v0.8.0             Last change: 2023 June 10
+*dr-lsp.txt*             For NVIM v0.8.0             Last change: 2023 June 20
 
 ==============================================================================
 Table of Contents                                   *dr-lsp-table-of-contents*
@@ -15,6 +15,8 @@ Table of Contents                                   *dr-lsp-table-of-contents*
 
 Lightweight status line component showing the number of LSP __d__efinition and
 __r__eference of the token under the cursor.
+
+A second component shows loading progress.
 
 
 INFORMATION SHOWN                       *dr-lsp-nvim-dr-lsp-information-shown*
@@ -50,11 +52,12 @@ INSTALLATION                                 *dr-lsp-nvim-dr-lsp-installation*
 <
 
 >lua
-    -- adding the component to lualine.nvim
+    -- adding the components to lualine.nvim
     {
         sections = {
             lualine_c = {
-                { require("dr-lsp").statusline },
+                { require("dr-lsp").lspCount },
+                { require("dr-lsp").lspProgress },
             },
         }
     }
