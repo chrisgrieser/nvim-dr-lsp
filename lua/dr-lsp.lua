@@ -79,6 +79,23 @@ function M.lspCount()
 	return "LSP: " .. defs .. " " .. refs
 end
 
+-- Simple alternative to fidget.nvim, ignoring null-ls
+-- based on snippet from u/folke https://www.reddit.com/r/neovim/comments/o4bguk/comment/h2kcjxa/
+function M.lspProgress()
+	local messages = vim.lsp.util.get_progress_messages()
+	if #messages == 0 then return "" end
+	local client = messages[1].name and messages[1].name .. ": " or ""
+	if client:find("null%-ls") then return "" end
+	local progress = messages[1].percentage or 0
+	local task = messages[1].title or ""
+	task = task:gsub("^(%w+).*", "%1") -- only first word
+
+	local spinners = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
+	local ms = vim.loop.hrtime() / 1000000
+	local frame = math.floor(ms / 120) % #spinners
+	return spinners[frame + 1] .. " " .. client .. progress .. "%% " .. task
+end
+
 --------------------------------------------------------------------------------
 
 return M

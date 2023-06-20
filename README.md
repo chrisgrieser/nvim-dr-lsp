@@ -1,6 +1,8 @@
 <!-- LTeX: enabled=false --><!-- vale off -->
 # nvim-dr-lsp
 Lightweight status line component showing the number of LSP __d__efinition and __r__eference of the token under the cursor.
+
+A second component shows loading progress.
 <!-- LTeX: enabled=true --><!-- vale on -->
 
 ![Showcase](https://github.com/chrisgrieser/nvim-dr-lsp/assets/73286100/8c6600c8-b16d-434f-8bdb-47b4a9dab7cb)
@@ -35,11 +37,12 @@ use { "chrisgrieser/nvim-dr-lsp" }
 ```
 
 ```lua
--- adding the component to lualine.nvim
+-- adding the components to lualine.nvim
 {
 	sections = {
 		lualine_c = {
-			{ require("dr-lsp").statusline },
+			{ require("dr-lsp").lspCount },
+			{ require("dr-lsp").lspProgress },
 		},
 	}
 }
