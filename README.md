@@ -1,9 +1,7 @@
 <!-- LTeX: enabled=false --><!-- vale off -->
 # nvim-dr-lsp
 
-Lightweight status line component showing the number of LSP __d__efinition and __r__eference of the token under the cursor.
-
-A second component shows loading progress.
+Lightweight status line component showing the number of LSP `D`efinitions and `R`eferences of the token under the cursor. A second component shows loading progress.
 
 ![Showcase](https://github.com/chrisgrieser/nvim-dr-lsp/assets/73286100/8c6600c8-b16d-434f-8bdb-47b4a9dab7cb)
 
