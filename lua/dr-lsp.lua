@@ -42,7 +42,7 @@ end
 ---for the current file and for the whole workspace.
 ---@return string statusline text
 ---@nodiscard
-function M.statusline()
+function M.lspCount()
 	-- abort when lsp loading or not capable of references
 	local currentBufNr = fn.bufnr()
 	local bufClients = lsp.get_active_clients { bufnr = currentBufNr }
