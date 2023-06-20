@@ -14,10 +14,9 @@ Table of Contents                                   *dr-lsp-table-of-contents*
 ==============================================================================
 1. nvim-dr-lsp                                            *dr-lsp-nvim-dr-lsp*
 
-Lightweight status line component showing the number of LSP __d__efinition and
-__r__eference of the token under the cursor.
-
-A second component shows loading progress.
+Lightweight status line component showing the number of LSP `D`efinitions and
+`R`eferences of the token under the cursor. A second component shows loading
+progress.
 
 
 TABLE OF CONTENTS                       *dr-lsp-nvim-dr-lsp-table-of-contents*
