@@ -82,7 +82,7 @@ end
 -- Simple alternative to fidget.nvim, ignoring null-ls
 -- based on snippet from u/folke https://www.reddit.com/r/neovim/comments/o4bguk/comment/h2kcjxa/
 function M.lspProgress()
-	local messages = vim.lsp.util.get_progress_messages()
+	local messages = (vim.version().minor > 9 and vim.version().major == 0) and vim.lsp.util.get_progress_messages() or vim.lsp.status()
 	if #messages == 0 then return "" end
 	local client = messages[1].name and messages[1].name .. ": " or ""
 	if client:find("null%-ls") then return "" end
