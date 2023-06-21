@@ -110,7 +110,7 @@ SIMILARPLUGINS                             *dr-lsp-nvim-dr-lsp-similarplugins*
 
 CREDITS                                           *dr-lsp-nvim-dr-lsp-credits*
 
-Basic snippet idea for the LSP progress from folke
+Basic for the progress component from folke
 <https://www.reddit.com/r/neovim/comments/o4bguk/comment/h2kcjxa/>. **About
 Me** In my day job, I am a sociologist studying the social mechanisms
 underlying the digital economy. For my PhD project, I investigate the
