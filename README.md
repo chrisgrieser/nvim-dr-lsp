@@ -65,12 +65,12 @@ use { "chrisgrieser/nvim-dr-lsp" }
 ```
 
 ## Formatting the components
-Formatting of the components can be done with the formatting-functions of the status line plugin you are using. With lualine, for example, you can use [`fmt` component option](https://github.com/nvim-lualine/lualine.nvim#global-options):
+There are no builtin options to format the components, since formatting can already be done with most statusline plugins. With lualine, for example, you can use the [`fmt` component option](https://github.com/nvim-lualine/lualine.nvim#global-options):
 
 ```lua
 lualine_c = {
 	{ 
-		require("dr-lsp").statusline, 
+		require("dr-lsp").lspCount, 
 		-- remove the letters from the component
 		fmt = function(str) return str:gsub("[RD]", "") end,
 	},
