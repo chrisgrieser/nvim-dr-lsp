@@ -46,7 +46,7 @@ function M.lspCount()
 	-- abort when lsp loading or not capable of references
 	local currentBufNr = fn.bufnr()
 	local bufClients = lsp.get_active_clients { bufnr = currentBufNr }
-	local lspProgress = lsp.util.get_progress_messages()
+	local lspProgress = (vim.version().minor > 9 and vim.version().major == 0) and vim.lsp.util.get_progress_messages() or vim.lsp.status()
 	local lspLoading = lspProgress.title and lspProgress.title:find("[Ll]oad")
 	local lspCapable = false
 	for _, client in pairs(bufClients) do
