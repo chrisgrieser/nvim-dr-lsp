@@ -84,7 +84,7 @@ lualine_c = {
 
 ## Credits
 <!-- LTeX: enabled=false --><!-- vale off -->
-Basic snippet idea for the LSP progress from [folke](https://www.reddit.com/r/neovim/comments/o4bguk/comment/h2kcjxa/).
+Basic for the progress component from [folke](https://www.reddit.com/r/neovim/comments/o4bguk/comment/h2kcjxa/).
 <!-- LTeX: enabled=true --><!-- vale on -->
 <!-- vale Google.FirstPerson = NO -->
 __About Me__  
