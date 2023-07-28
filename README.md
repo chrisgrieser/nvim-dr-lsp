@@ -1,5 +1,6 @@
 <!-- LTeX: enabled=false --><!-- vale off -->
-# nvim-dr-lsp
+# nvim-dr-lsp <!-- LTeX: enabled=true --><!-- vale on -->
+<a href="https://dotfyle.com/plugins/chrisgrieser/nvim-dr-lsp"><img src="https://dotfyle.com/plugins/chrisgrieser/nvim-dr-lsp/shield" /></a>
 
 Lightweight status line component showing the number of LSP `D`efinitions and `R`eferences of the token under the cursor. A second component shows loading progress.
 
@@ -16,7 +17,7 @@ Lightweight status line component showing the number of LSP `D`efinitions and `R
 - [Similar Plugins](#similar-plugins)
 - [Credits](#credits)
 <!--toc:end-->
-<!-- LTeX: enabled=true --><!-- vale on -->
+
 
 ## Components
 
