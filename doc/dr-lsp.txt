@@ -1,25 +1,27 @@
-*dr-lsp.txt*             For NVIM v0.8.0             Last change: 2023 July 24
+*dr-lsp.txt*             For NVIM v0.8.0             Last change: 2023 July 28
 
 ==============================================================================
 Table of Contents                                   *dr-lsp-table-of-contents*
 
-1. nvim-dr-lsp                                            |dr-lsp-nvim-dr-lsp|
-  - Table of Contents                   |dr-lsp-nvim-dr-lsp-table-of-contents|
-  - Components                                 |dr-lsp-nvim-dr-lsp-components|
-  - Installation                             |dr-lsp-nvim-dr-lsp-installation|
-  - Formatting the components   |dr-lsp-nvim-dr-lsp-formatting-the-components|
-  - SimilarPlugins                         |dr-lsp-nvim-dr-lsp-similarplugins|
-  - Credits                                       |dr-lsp-nvim-dr-lsp-credits|
+1. nvim-dr-lsp                                           |dr-lsp-nvim-dr-lsp-|
+  - Table of Contents                  |dr-lsp-nvim-dr-lsp--table-of-contents|
+  - Components                                |dr-lsp-nvim-dr-lsp--components|
+  - Installation                            |dr-lsp-nvim-dr-lsp--installation|
+  - Formatting the components  |dr-lsp-nvim-dr-lsp--formatting-the-components|
+  - SimilarPlugins                        |dr-lsp-nvim-dr-lsp--similarplugins|
+  - Credits                                      |dr-lsp-nvim-dr-lsp--credits|
 
 ==============================================================================
-1. nvim-dr-lsp                                            *dr-lsp-nvim-dr-lsp*
+1. nvim-dr-lsp                                           *dr-lsp-nvim-dr-lsp-*
+
+
 
 Lightweight status line component showing the number of LSP `D`efinitions and
 `R`eferences of the token under the cursor. A second component shows loading
 progress.
 
 
-TABLE OF CONTENTS                       *dr-lsp-nvim-dr-lsp-table-of-contents*
+TABLE OF CONTENTS                      *dr-lsp-nvim-dr-lsp--table-of-contents*
 
 - |dr-lsp-table-of-contents|
 - |dr-lsp-components|
@@ -31,7 +33,7 @@ TABLE OF CONTENTS                       *dr-lsp-nvim-dr-lsp-table-of-contents*
 - |dr-lsp-credits|
 
 
-COMPONENTS                                     *dr-lsp-nvim-dr-lsp-components*
+COMPONENTS                                    *dr-lsp-nvim-dr-lsp--components*
 
 
 LSPCOUNT ~
@@ -60,7 +62,7 @@ LSPPROGRESS ~
 - Shows LSP activity spinner, similar to fidget.nvim <https://github.com/j-hui/fidget.nvim>, but less obtrusive.
 
 
-INSTALLATION                                 *dr-lsp-nvim-dr-lsp-installation*
+INSTALLATION                                *dr-lsp-nvim-dr-lsp--installation*
 
 >lua
     -- lazy.nvim
@@ -83,7 +85,7 @@ INSTALLATION                                 *dr-lsp-nvim-dr-lsp-installation*
 <
 
 
-FORMATTING THE COMPONENTS       *dr-lsp-nvim-dr-lsp-formatting-the-components*
+FORMATTING THE COMPONENTS      *dr-lsp-nvim-dr-lsp--formatting-the-components*
 
 There are no builtin options to format the components, since formatting can
 already be done with most statusline plugins. With lualine, for example, you
@@ -101,14 +103,14 @@ can use the `fmt` component option
 <
 
 
-SIMILARPLUGINS                             *dr-lsp-nvim-dr-lsp-similarplugins*
+SIMILARPLUGINS                            *dr-lsp-nvim-dr-lsp--similarplugins*
 
 - LSP-Lens <https://github.com/VidocqH/lsp-lens.nvim>Also shows definition & reference counts but as virtual lines.
 - Fidget.nvim <https://github.com/j-hui/fidget.nvim>Also shows LSP progress,
     more customizable but above the status line.
 
 
-CREDITS                                           *dr-lsp-nvim-dr-lsp-credits*
+CREDITS                                          *dr-lsp-nvim-dr-lsp--credits*
 
 Basic for the progress component from folke
 <https://www.reddit.com/r/neovim/comments/o4bguk/comment/h2kcjxa/>. **About
