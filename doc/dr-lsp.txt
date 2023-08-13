@@ -1,4 +1,4 @@
-*dr-lsp.txt*             For NVIM v0.8.0             Last change: 2023 July 28
+*dr-lsp.txt*            For NVIM v0.8.0            Last change: 2023 August 13
 
 ==============================================================================
 Table of Contents                                   *dr-lsp-table-of-contents*
@@ -105,14 +105,14 @@ can use the `fmt` component option
 
 SIMILARPLUGINS                            *dr-lsp-nvim-dr-lsp--similarplugins*
 
-- LSP-Lens <https://github.com/VidocqH/lsp-lens.nvim>Also shows definition & reference counts but as virtual lines.
-- Fidget.nvim <https://github.com/j-hui/fidget.nvim>Also shows LSP progress,
-    more customizable but above the status line.
+- LSP-Lens <https://github.com/VidocqH/lsp-lens.nvim>
+- Fidget.nvim <https://github.com/j-hui/fidget.nvim>
+- action-hints.nvim <https://github.com/roobert/action-hints.nvim>
 
 
 CREDITS                                          *dr-lsp-nvim-dr-lsp--credits*
 
-Basic for the progress component from folke
+Basic idea for the progress component from folke
 <https://www.reddit.com/r/neovim/comments/o4bguk/comment/h2kcjxa/>. **About
 Me** In my day job, I am a sociologist studying the social mechanisms
 underlying the digital economy. For my PhD project, I investigate the
