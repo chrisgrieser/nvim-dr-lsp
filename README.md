@@ -79,13 +79,13 @@ lualine_c = {
 ```
 
 ## Similar Plugins
-- [LSP-Lens](https://github.com/VidocqH/lsp-lens.nvim): Also shows definition & reference counts but as virtual lines.
-- [Fidget.nvim](https://github.com/j-hui/fidget.nvim): Also shows LSP progress,
-  more customizable but above the status line.
+- [LSP-Lens](https://github.com/VidocqH/lsp-lens.nvim)
+- [Fidget.nvim](https://github.com/j-hui/fidget.nvim)
+- [action-hints.nvim](https://github.com/roobert/action-hints.nvim)
 
 ## Credits
 <!-- LTeX: enabled=false --><!-- vale off -->
-Basic for the progress component from [folke](https://www.reddit.com/r/neovim/comments/o4bguk/comment/h2kcjxa/).
+Basic idea for the progress component from [folke](https://www.reddit.com/r/neovim/comments/o4bguk/comment/h2kcjxa/).
 <!-- LTeX: enabled=true --><!-- vale on -->
 <!-- vale Google.FirstPerson = NO -->
 __About Me__  
