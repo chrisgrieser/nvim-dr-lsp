@@ -1,14 +1,12 @@
-<!-- LTeX: enabled=false --><!-- vale off -->
-# nvim-dr-lsp <!-- LTeX: enabled=true --><!-- vale on -->
+<!-- LTeX: enabled=false -->
+# nvim-dr-lsp <!-- LTeX: enabled=true -->
 <a href="https://dotfyle.com/plugins/chrisgrieser/nvim-dr-lsp"><img src="https://dotfyle.com/plugins/chrisgrieser/nvim-dr-lsp/shield" /></a>
 
 Lightweight status line component showing the number of LSP `D`efinitions and `R`eferences of the token under the cursor. A second component shows loading progress.
 
 ![Showcase](https://github.com/chrisgrieser/nvim-dr-lsp/assets/73286100/8c6600c8-b16d-434f-8bdb-47b4a9dab7cb)
 
-## Table of Contents
 <!--toc:start-->
-- [Table of Contents](#table-of-contents)
 - [Components](#components)
 	- [`lspCount`](#lspcount)
 	- [`lspProgress`](#lspprogress)
@@ -18,9 +16,7 @@ Lightweight status line component showing the number of LSP `D`efinitions and `R
 - [Credits](#credits)
 <!--toc:end-->
 
-
 ## Components
-
 ### `lspCount`
 __Definitions and references inside current buffer__
 
@@ -66,7 +62,8 @@ use { "chrisgrieser/nvim-dr-lsp" }
 ```
 
 ## Formatting the components
-There are no builtin options to format the components, since formatting can already be done with most statusline plugins. With lualine, for example, you can use the [`fmt` component option](https://github.com/nvim-lualine/lualine.nvim#global-options):
+There are no builtin options to format the components, since formatting can already be done with most statusline plugins. With l
+Lualine, for example, you can use the [`fmt` component option](https://github.com/nvim-lualine/lualine.nvim#global-options):
 
 ```lua
 lualine_c = {
@@ -82,11 +79,12 @@ lualine_c = {
 - [LSP-Lens](https://github.com/VidocqH/lsp-lens.nvim)
 - [Fidget.nvim](https://github.com/j-hui/fidget.nvim)
 - [action-hints.nvim](https://github.com/roobert/action-hints.nvim)
+- [symbol-usage.nvim](https://github.com/Wansmer/symbol-usage.nvim)
 
 ## Credits
-<!-- LTeX: enabled=false --><!-- vale off -->
+<!-- LTeX: enabled=false -->
 Basic idea for the progress component from [folke](https://www.reddit.com/r/neovim/comments/o4bguk/comment/h2kcjxa/).
-<!-- LTeX: enabled=true --><!-- vale on -->
+<!-- LTeX: enabled=true -->
 <!-- vale Google.FirstPerson = NO -->
 __About Me__  
 In my day job, I am a sociologist studying the social mechanisms underlying the digital economy. For my PhD project, I investigate the governance of the app economy and how software ecosystems manage the tension between innovation and compatibility. If you are interested in this subject, feel free to get in touch.
