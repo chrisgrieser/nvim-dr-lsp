@@ -1,10 +1,9 @@
-*dr-lsp.txt*            For NVIM v0.8.0            Last change: 2023 August 13
+*dr-lsp.txt*           For NVIM v0.8.0          Last change: 2023 September 18
 
 ==============================================================================
 Table of Contents                                   *dr-lsp-table-of-contents*
 
 1. nvim-dr-lsp                                           |dr-lsp-nvim-dr-lsp-|
-  - Table of Contents                  |dr-lsp-nvim-dr-lsp--table-of-contents|
   - Components                                |dr-lsp-nvim-dr-lsp--components|
   - Installation                            |dr-lsp-nvim-dr-lsp--installation|
   - Formatting the components  |dr-lsp-nvim-dr-lsp--formatting-the-components|
@@ -20,10 +19,6 @@ Lightweight status line component showing the number of LSP `D`efinitions and
 `R`eferences of the token under the cursor. A second component shows loading
 progress.
 
-
-TABLE OF CONTENTS                      *dr-lsp-nvim-dr-lsp--table-of-contents*
-
-- |dr-lsp-table-of-contents|
 - |dr-lsp-components|
     - |dr-lsp-`lspcount`|
     - |dr-lsp-`lspprogress`|
@@ -88,7 +83,7 @@ INSTALLATION                                *dr-lsp-nvim-dr-lsp--installation*
 FORMATTING THE COMPONENTS      *dr-lsp-nvim-dr-lsp--formatting-the-components*
 
 There are no builtin options to format the components, since formatting can
-already be done with most statusline plugins. With lualine, for example, you
+already be done with most statusline plugins. With l Lualine, for example, you
 can use the `fmt` component option
 <https://github.com/nvim-lualine/lualine.nvim#global-options>
 
@@ -108,6 +103,7 @@ SIMILARPLUGINS                            *dr-lsp-nvim-dr-lsp--similarplugins*
 - LSP-Lens <https://github.com/VidocqH/lsp-lens.nvim>
 - Fidget.nvim <https://github.com/j-hui/fidget.nvim>
 - action-hints.nvim <https://github.com/roobert/action-hints.nvim>
+- symbol-usage.nvim <https://github.com/Wansmer/symbol-usage.nvim>
 
 
 CREDITS                                          *dr-lsp-nvim-dr-lsp--credits*
