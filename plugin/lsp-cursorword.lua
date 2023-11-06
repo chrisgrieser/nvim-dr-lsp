@@ -1,24 +1,26 @@
 if vim.g.dr_lsp_no_highlight then return end
 --------------------------------------------------------------------------------
 
-
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(args)
 		local capabilities = vim.lsp.get_client_by_id(args.data.client_id).server_capabilities
 		if not capabilities.documentHighlightProvider then return end
 
-		local id2 = vim.api.nvim_create_autocmd("CursorHold", {
+		local group = vim.api.nvim_create_augroup("LspDocumentHighlight", {})
+		vim.api.nvim_create_autocmd("CursorHold", {
 			callback = vim.lsp.buf.document_highlight,
 			buffer = args.buf,
+			group = group,
 		})
-		local id1 = vim.api.nvim_create_autocmd("CursorMoved", {
+		vim.api.nvim_create_autocmd("CursorMoved", {
 			callback = vim.lsp.buf.clear_references,
 			buffer = args.buf,
+			group = group,
 		})
 		vim.api.nvim_create_autocmd("LspDetach", {
 			callback = function()
-				vim.api.nvim_del_autocmd(id1)
-				vim.api.nvim_del_autocmd(id2)
+				vim.lsp.buf.clear_references()
+				pcall(vim.api.nvim_del_augroup_by_id, group)
 			end,
 		})
 	end,
@@ -36,5 +38,4 @@ end
 setupHighlights()
 
 -- persist upon colorscheme changes
-vim.api.nvim_create_autocmd( "ColorScheme" , { callback = setupHighlights })
-
+vim.api.nvim_create_autocmd("ColorScheme", { callback = setupHighlights })
