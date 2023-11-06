@@ -1,15 +1,21 @@
 <!-- LTeX: enabled=false -->
-# nvim-dr-lsp <!-- LTeX: enabled=true -->
-<a href="https://dotfyle.com/plugins/chrisgrieser/nvim-dr-lsp"><img src="https://dotfyle.com/plugins/chrisgrieser/nvim-dr-lsp/shield" /></a>
+# nvim-dr-lsp
+<!-- LTeX: enabled=true -->
+<a href="https://dotfyle.com/plugins/chrisgrieser/nvim-dr-lsp">
+<img src="https://dotfyle.com/plugins/chrisgrieser/nvim-dr-lsp/shield" /></a>
 
-Lightweight status line component showing the number of LSP `D`efinitions and `R`eferences of the token under the cursor. A second component shows loading progress.
+`D`efinitions and `R`eferences utility for LSP. <!--codespell-ignore-->
+
+Lightweight status line component showing the number of LSP definitions and
+references of the token under the cursor. A second component shows loading
+progress.
 
 ![Showcase](https://github.com/chrisgrieser/nvim-dr-lsp/assets/73286100/8c6600c8-b16d-434f-8bdb-47b4a9dab7cb)
 
 <!--toc:start-->
 - [Components](#components)
-	- [`lspCount`](#lspcount)
-	- [`lspProgress`](#lspprogress)
+	+ [`lspCount`](#lspcount)
+	+ [`lspProgress`](#lspprogress)
 - [Installation](#installation)
 - [Formatting the components](#formatting-the-components)
 - [Similar Plugins](#similar-plugins)
@@ -17,6 +23,7 @@ Lightweight status line component showing the number of LSP `D`efinitions and `R
 <!--toc:end-->
 
 ## Components
+
 ### `lspCount`
 __Definitions and references inside current buffer__
 
@@ -37,7 +44,8 @@ LSP: 1(2)D 4(10)R
 
 ### `lspProgress`
 - Ignores `null-ls` and `none-ls`.
-- Shows LSP activity spinner, similar to [fidget.nvim](https://github.com/j-hui/fidget.nvim), but less obtrusive.
+- Shows LSP activity spinner, similar to
+  [fidget.nvim](https://github.com/j-hui/fidget.nvim), but less obtrusive.
 
 ## Installation
 
@@ -62,7 +70,8 @@ use { "chrisgrieser/nvim-dr-lsp" }
 ```
 
 ## Formatting the components
-There are no builtin options to format the components, since formatting can already be done with most statusline plugins. With l
+There are no built-in options to format the components, since formatting can
+already be done with most statusline plugins. With l
 Lualine, for example, you can use the [`fmt` component option](https://github.com/nvim-lualine/lualine.nvim#global-options):
 
 ```lua
@@ -87,16 +96,25 @@ Basic idea for the progress component from [folke](https://www.reddit.com/r/neov
 <!-- LTeX: enabled=true -->
 <!-- vale Google.FirstPerson = NO -->
 __About Me__  
-In my day job, I am a sociologist studying the social mechanisms underlying the digital economy. For my PhD project, I investigate the governance of the app economy and how software ecosystems manage the tension between innovation and compatibility. If you are interested in this subject, feel free to get in touch.
+In my day job, I am a sociologist studying the social mechanisms underlying the
+digital economy. For my PhD project, I investigate the governance of the app
+economy and how software ecosystems manage the tension between innovation and
+compatibility. If you are interested in this subject, feel free to get in touch.
 
 __Profiles__  
 - [reddit](https://www.reddit.com/user/pseudometapseudo)
 - [Discord](https://discordapp.com/users/462774483044794368/)
 - [Academic Website](https://chris-grieser.de/)
 - [Twitter](https://twitter.com/pseudo_meta)
+- [Mastodon](https://pkm.social/@pseudometa)
 - [ResearchGate](https://www.researchgate.net/profile/Christopher-Grieser)
 - [LinkedIn](https://www.linkedin.com/in/christopher-grieser-ba693b17a/)
 
-__Buy Me a Coffee__  
-<br>
-<a href='https://ko-fi.com/Y8Y86SQ91' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://cdn.ko-fi.com/cdn/kofi1.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
+<a href='https://ko-fi.com/Y8Y86SQ91' target='_blank'>
+<img
+	height='36'
+	style='border:0px;height:36px;'
+	src='https://cdn.ko-fi.com/cdn/kofi1.png?v=3'
+	border='0'
+	alt='Buy Me a Coffee at ko-fi.com'
+/></a>
