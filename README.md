@@ -36,7 +36,7 @@ LSP: 1(2)D 4(10)R
 - 10 definitions in the workspace
 
 ### `lspProgress`
-- Ignores `null-ls`
+- Ignores `null-ls` and `none-ls`.
 - Shows LSP activity spinner, similar to [fidget.nvim](https://github.com/j-hui/fidget.nvim), but less obtrusive.
 
 ## Installation

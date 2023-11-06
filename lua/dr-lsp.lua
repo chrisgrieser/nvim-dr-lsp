@@ -85,7 +85,7 @@ function M.lspProgress()
 	local messages = (vim.version().minor > 9 and vim.version().major == 0) and vim.lsp.status() or vim.lsp.util.get_progress_messages()
 	if #messages == 0 then return "" end
 	local client = messages[1].name and messages[1].name .. ": " or ""
-	if client:find("null%-ls") then return "" end
+	if client:find("null%-ls") or client:find("none%-ls") then return "" end
 	local progress = messages[1].percentage or 0
 	local task = messages[1].title or ""
 	task = task:gsub("^(%w+).*", "%1") -- only first word
