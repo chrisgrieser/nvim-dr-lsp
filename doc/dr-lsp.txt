@@ -1,34 +1,37 @@
-*dr-lsp.txt*           For NVIM v0.8.0          Last change: 2023 September 18
+*dr-lsp.txt*           For NVIM v0.8.0           Last change: 2023 November 06
 
 ==============================================================================
 Table of Contents                                   *dr-lsp-table-of-contents*
 
-1. nvim-dr-lsp                                           |dr-lsp-nvim-dr-lsp-|
-  - Components                                |dr-lsp-nvim-dr-lsp--components|
-  - Installation                            |dr-lsp-nvim-dr-lsp--installation|
-  - Formatting the components  |dr-lsp-nvim-dr-lsp--formatting-the-components|
-  - SimilarPlugins                        |dr-lsp-nvim-dr-lsp--similarplugins|
-  - Credits                                      |dr-lsp-nvim-dr-lsp--credits|
+1. nvim-dr-lsp                                            |dr-lsp-nvim-dr-lsp|
+  - Statusline Components           |dr-lsp-nvim-dr-lsp-statusline-components|
+  - Installation                             |dr-lsp-nvim-dr-lsp-installation|
+  - Highlights of definition and references|dr-lsp-nvim-dr-lsp-highlights-of-definition-and-references|
+  - Customizing the components |dr-lsp-nvim-dr-lsp-customizing-the-components|
+  - SimilarPlugins                         |dr-lsp-nvim-dr-lsp-similarplugins|
+  - Credits                                       |dr-lsp-nvim-dr-lsp-credits|
 
 ==============================================================================
-1. nvim-dr-lsp                                           *dr-lsp-nvim-dr-lsp-*
+1. nvim-dr-lsp                                            *dr-lsp-nvim-dr-lsp*
 
 
 
-Lightweight status line component showing the number of LSP `D`efinitions and
-`R`eferences of the token under the cursor. A second component shows loading
-progress.
+`D`efinitions and `R`eferences utility for the LSP.
 
-- |dr-lsp-components|
+Lightweight plugin that highlights definitions and references of the word under
+the cursor and displays their count in the statusline.
+
+- |dr-lsp-statusline-components|
     - |dr-lsp-`lspcount`|
     - |dr-lsp-`lspprogress`|
 - |dr-lsp-installation|
-- |dr-lsp-formatting-the-components|
+- |dr-lsp-highlights-of-definition-and-references|
+- |dr-lsp-customizing-the-components|
 - |dr-lsp-similar-plugins|
 - |dr-lsp-credits|
 
 
-COMPONENTS                                    *dr-lsp-nvim-dr-lsp--components*
+STATUSLINE COMPONENTS               *dr-lsp-nvim-dr-lsp-statusline-components*
 
 
 LSPCOUNT ~
@@ -53,11 +56,12 @@ LSPCOUNT ~
 
 LSPPROGRESS ~
 
-- Ignores `null-ls`
-- Shows LSP activity spinner, similar to fidget.nvim <https://github.com/j-hui/fidget.nvim>, but less obtrusive.
+- LSP activity spinner, similar to
+    fidget.nvim <https://github.com/j-hui/fidget.nvim>, but less obtrusive.
+- Ignores `null-ls` and `none-ls`.
 
 
-INSTALLATION                                *dr-lsp-nvim-dr-lsp--installation*
+INSTALLATION                                 *dr-lsp-nvim-dr-lsp-installation*
 
 >lua
     -- lazy.nvim
@@ -79,12 +83,24 @@ INSTALLATION                                *dr-lsp-nvim-dr-lsp--installation*
     }
 <
 
+There is no `.setup` call for this plugin. Just add the components to your
+statusline.
 
-FORMATTING THE COMPONENTS      *dr-lsp-nvim-dr-lsp--formatting-the-components*
 
-There are no builtin options to format the components, since formatting can
-already be done with most statusline plugins. With l Lualine, for example, you
-can use the `fmt` component option
+HIGHLIGHTS OF DEFINITION AND REFERENCES*dr-lsp-nvim-dr-lsp-highlights-of-definition-and-references*
+
+- Definitions are under-dashed, references are under-dotted.
+- These are set up automatically for you as soon as the buffer is attached to an
+    LSP client.
+- To disable the highlights feature, set `vim.g.dr_lsp_no_highlight = true`
+    before loading the plugin.
+
+
+CUSTOMIZING THE COMPONENTS     *dr-lsp-nvim-dr-lsp-customizing-the-components*
+
+There are no built-in options to format the components, since formatting can
+already be done with most statusline plugins. With Lualine, for example, you
+can use the `fmt` option
 <https://github.com/nvim-lualine/lualine.nvim#global-options>
 
 >lua
@@ -98,7 +114,7 @@ can use the `fmt` component option
 <
 
 
-SIMILARPLUGINS                            *dr-lsp-nvim-dr-lsp--similarplugins*
+SIMILARPLUGINS                             *dr-lsp-nvim-dr-lsp-similarplugins*
 
 - LSP-Lens <https://github.com/VidocqH/lsp-lens.nvim>
 - Fidget.nvim <https://github.com/j-hui/fidget.nvim>
@@ -106,7 +122,7 @@ SIMILARPLUGINS                            *dr-lsp-nvim-dr-lsp--similarplugins*
 - symbol-usage.nvim <https://github.com/Wansmer/symbol-usage.nvim>
 
 
-CREDITS                                          *dr-lsp-nvim-dr-lsp--credits*
+CREDITS                                           *dr-lsp-nvim-dr-lsp-credits*
 
 Basic idea for the progress component from folke
 <https://www.reddit.com/r/neovim/comments/o4bguk/comment/h2kcjxa/>. **About
@@ -119,10 +135,11 @@ feel free to get in touch.
 **Profiles** - reddit <https://www.reddit.com/user/pseudometapseudo> - Discord
 <https://discordapp.com/users/462774483044794368/> - Academic Website
 <https://chris-grieser.de/> - Twitter <https://twitter.com/pseudo_meta> -
-ResearchGate <https://www.researchgate.net/profile/Christopher-Grieser> -
-LinkedIn <https://www.linkedin.com/in/christopher-grieser-ba693b17a/>
+Mastodon <https://pkm.social/@pseudometa> - ResearchGate
+<https://www.researchgate.net/profile/Christopher-Grieser> - LinkedIn
+<https://www.linkedin.com/in/christopher-grieser-ba693b17a/>
 
-**Buy Me a Coffee**
+
 
 ==============================================================================
 2. Links                                                        *dr-lsp-links*
