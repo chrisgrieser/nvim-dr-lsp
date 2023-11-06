@@ -4,25 +4,27 @@
 <a href="https://dotfyle.com/plugins/chrisgrieser/nvim-dr-lsp">
 <img src="https://dotfyle.com/plugins/chrisgrieser/nvim-dr-lsp/shield" /></a>
 
-`D`efinitions and `R`eferences utility for LSP. <!--codespell-ignore-->
+`D`efinitions and `R`eferences utility for the LSP. <!--codespell-ignore-->
 
-Lightweight status line component showing the number of LSP definitions and
-references of the token under the cursor. A second component shows loading
-progress.
+Lightweight plugin that highlights definitions and references of the word under
+the cursor and displays their count in the statusline.
 
 ![Showcase](https://github.com/chrisgrieser/nvim-dr-lsp/assets/73286100/8c6600c8-b16d-434f-8bdb-47b4a9dab7cb)
 
-<!--toc:start-->
-- [Components](#components)
-	+ [`lspCount`](#lspcount)
-	+ [`lspProgress`](#lspprogress)
+<!-- toc -->
+
+- [Statusline Components](#statusline-components)
+	* [`lspCount`](#lspcount)
+	* [`lspProgress`](#lspprogress)
 - [Installation](#installation)
-- [Formatting the components](#formatting-the-components)
+- [Highlights of definition and references](#highlights-of-definition-and-references)
+- [Customizing the components](#customizing-the-components)
 - [Similar Plugins](#similar-plugins)
 - [Credits](#credits)
-<!--toc:end-->
 
-## Components
+<!-- tocstop -->
+
+## Statusline Components
 
 ### `lspCount`
 __Definitions and references inside current buffer__
@@ -43,9 +45,9 @@ LSP: 1(2)D 4(10)R
 - 10 definitions in the workspace
 
 ### `lspProgress`
-- Ignores `null-ls` and `none-ls`.
-- Shows LSP activity spinner, similar to
+- LSP activity spinner, similar to
   [fidget.nvim](https://github.com/j-hui/fidget.nvim), but less obtrusive.
+- Ignores `null-ls` and `none-ls`.
 
 ## Installation
 
@@ -69,10 +71,20 @@ use { "chrisgrieser/nvim-dr-lsp" }
 }
 ```
 
-## Formatting the components
+There is no `.setup` call for this plugin. Just add the components to your
+statusline.
+
+## Highlights of definition and references
+- Definitions are under-dashed, references are under-dotted.
+- These are set up automatically for you as soon as the buffer is attached to an
+  LSP client.
+- To disable the highlights feature, set `vim.g.dr_lsp_no_highlight = true`
+  before loading the plugin.
+
+## Customizing the components
 There are no built-in options to format the components, since formatting can
-already be done with most statusline plugins. With l
-Lualine, for example, you can use the [`fmt` component option](https://github.com/nvim-lualine/lualine.nvim#global-options):
+already be done with most statusline plugins. With Lualine, for example, you can
+use the [`fmt` option](https://github.com/nvim-lualine/lualine.nvim#global-options):
 
 ```lua
 lualine_c = {
