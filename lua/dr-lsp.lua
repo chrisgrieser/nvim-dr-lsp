@@ -38,7 +38,7 @@ local function requestLspRefCount()
 	end)
 end
 
----shows the number of definitions/references as identified by LSP. Shows count
+---Shows the number of definitions/references as identified by LSP. Shows count
 ---for the current file and for the whole workspace.
 ---@return string statusline text
 ---@nodiscard
@@ -73,7 +73,7 @@ end
 ---@field file LspCountSingleResult local file result
 ---@field workspace LspCountSingleResult workspace result
 
----returns the number of definitions/references as identified by LSP as table
+---Returns the number of definitions/references as identified by LSP as table
 ---for the current file and for the whole workspace.
 ---@return LspCountResult? table contains the lsp count results
 ---@nodiscard
@@ -81,7 +81,8 @@ function M.lspCountTable()
 	-- abort when lsp loading or not capable of references
 	local currentBufNr = fn.bufnr()
 	local bufClients = lsp.get_active_clients { bufnr = currentBufNr }
-	local lspProgress = (vim.version().minor > 9 and vim.version().major == 0) and vim.lsp.status() or vim.lsp.util.get_progress_messages()
+	local lspProgress = (vim.version().minor > 9 and vim.version().major == 0) and vim.lsp.status()
+		or vim.lsp.util.get_progress_messages()
 	local lspLoading = lspProgress.title and lspProgress.title:find("[Ll]oad")
 	local lspCapable = false
 	for _, client in pairs(bufClients) do
@@ -107,10 +108,13 @@ function M.lspCountTable()
 	}
 end
 
+--------------------------------------------------------------------------------
+
 -- Simple alternative to fidget.nvim, ignoring null-ls
 -- based on snippet from u/folke https://www.reddit.com/r/neovim/comments/o4bguk/comment/h2kcjxa/
 function M.lspProgress()
-	local messages = (vim.version().minor > 9 and vim.version().major == 0) and vim.lsp.status() or vim.lsp.util.get_progress_messages()
+	local messages = (vim.version().minor > 9 and vim.version().major == 0) and vim.lsp.status()
+		or vim.lsp.util.get_progress_messages()
 	if #messages == 0 then return "" end
 	local client = messages[1].name and messages[1].name .. ": " or ""
 	if client:find("null%-ls") or client:find("none%-ls") then return "" end

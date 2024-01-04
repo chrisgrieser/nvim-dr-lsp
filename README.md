@@ -1,8 +1,8 @@
 <!-- LTeX: enabled=false -->
-# nvim-dr-lsp
+# nvim-dr-lsp 👨‍⚕️👩‍⚕️
 <!-- LTeX: enabled=true -->
 <a href="https://dotfyle.com/plugins/chrisgrieser/nvim-dr-lsp">
-<img src="https://dotfyle.com/plugins/chrisgrieser/nvim-dr-lsp/shield" /></a>
+<img alt="badge" src="https://dotfyle.com/plugins/chrisgrieser/nvim-dr-lsp/shield"/></a>
 
 `D`efinitions and `R`eferences utility for the LSP. <!--codespell-ignore-->
 
@@ -16,8 +16,7 @@ the cursor and displays their count in the statusline.
 - [Statusline Components](#statusline-components)
 	* [`lspCount`](#lspcount)
 	* [`lspProgress`](#lspprogress)
-- [API](#api)
-	* [`lspCountTable`](#lspcounttable)
+- [API: `lspCountTable`](#api-lspcounttable)
 - [Installation](#installation)
 - [Highlights of definition and references](#highlights-of-definition-and-references)
 - [Customizing the components](#customizing-the-components)
@@ -51,10 +50,8 @@ LSP: 1(2)D 4(10)R
   [fidget.nvim](https://github.com/j-hui/fidget.nvim), but less obtrusive.
 - Ignores `null-ls` and `none-ls`.
 
-## API
-
-### `lspCountTable`
-Returns the lspCount information as Lua table for customize formatting
+## API: `lspCountTable`
+Returns the `lspCount` information as Lua table for custom formatting.
 
 ```lua
 {
@@ -124,7 +121,7 @@ lualine_c = {
 
 ## Credits
 <!-- LTeX: enabled=false -->
-Basic idea for the progress component from [folke](https://www.reddit.com/r/neovim/comments/o4bguk/comment/h2kcjxa/).
+The basic idea for the progress component came from [folke](https://www.reddit.com/r/neovim/comments/o4bguk/comment/h2kcjxa/).
 <!-- LTeX: enabled=true -->
 <!-- vale Google.FirstPerson = NO -->
 __About Me__  
