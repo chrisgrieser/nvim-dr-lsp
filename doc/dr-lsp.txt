@@ -1,10 +1,11 @@
-*dr-lsp.txt*           For NVIM v0.8.0           Last change: 2023 November 06
+*dr-lsp.txt*            For NVIM v0.8.0           Last change: 2024 January 04
 
 ==============================================================================
 Table of Contents                                   *dr-lsp-table-of-contents*
 
 1. nvim-dr-lsp                                            |dr-lsp-nvim-dr-lsp|
   - Statusline Components           |dr-lsp-nvim-dr-lsp-statusline-components|
+  - API                                               |dr-lsp-nvim-dr-lsp-api|
   - Installation                             |dr-lsp-nvim-dr-lsp-installation|
   - Highlights of definition and references|dr-lsp-nvim-dr-lsp-highlights-of-definition-and-references|
   - Customizing the components |dr-lsp-nvim-dr-lsp-customizing-the-components|
@@ -24,6 +25,8 @@ the cursor and displays their count in the statusline.
 - |dr-lsp-statusline-components|
     - |dr-lsp-`lspcount`|
     - |dr-lsp-`lspprogress`|
+- |dr-lsp-api|
+    - |dr-lsp-`lspcounttable`|
 - |dr-lsp-installation|
 - |dr-lsp-highlights-of-definition-and-references|
 - |dr-lsp-customizing-the-components|
@@ -59,6 +62,27 @@ LSPPROGRESS ~
 - LSP activity spinner, similar to
     fidget.nvim <https://github.com/j-hui/fidget.nvim>, but less obtrusive.
 - Ignores `null-ls` and `none-ls`.
+
+
+API                                                   *dr-lsp-nvim-dr-lsp-api*
+
+
+LSPCOUNTTABLE ~
+
+Returns the lspCount information as Lua table for customize formatting
+
+>lua
+    {
+        file = {
+            definitions = 1,
+            references = 4,
+        },
+        workspace = {
+            definitions = 2,
+            references = 10,
+        },
+    }
+<
 
 
 INSTALLATION                                 *dr-lsp-nvim-dr-lsp-installation*
