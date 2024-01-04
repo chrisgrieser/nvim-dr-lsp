@@ -16,6 +16,8 @@ the cursor and displays their count in the statusline.
 - [Statusline Components](#statusline-components)
 	* [`lspCount`](#lspcount)
 	* [`lspProgress`](#lspprogress)
+- [API](#api)
+	* [`lspCountTable`](#lspcounttable)
 - [Installation](#installation)
 - [Highlights of definition and references](#highlights-of-definition-and-references)
 - [Customizing the components](#customizing-the-components)
@@ -48,6 +50,24 @@ LSP: 1(2)D 4(10)R
 - LSP activity spinner, similar to
   [fidget.nvim](https://github.com/j-hui/fidget.nvim), but less obtrusive.
 - Ignores `null-ls` and `none-ls`.
+
+## API
+
+### `lspCountTable`
+Returns the lspCount information as Lua table for customize formatting
+
+```lua
+{
+	file = {
+		definitions = 1,
+		references = 4,
+	},
+	workspace = {
+		definitions = 2,
+		references = 10,
+	},
+}
+```
 
 ## Installation
 
