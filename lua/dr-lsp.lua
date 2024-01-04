@@ -43,6 +43,41 @@ end
 ---@return string statusline text
 ---@nodiscard
 function M.lspCount()
+	local count = M.lspCountTable()
+	if count == nil then return "" end
+
+	-- format lsp references/definitions count to be displayed in the status bar
+	local defs, refs = "", ""
+	if count.workspace.definitions then
+		defs = tostring(count.file.definitions)
+		if count.file.definitions ~= count.workspace.definitions then
+			defs = defs .. "(" .. tostring(count.workspace.definitions) .. ")"
+		end
+		defs = defs .. "D"
+	end
+	if count.workspace.references then
+		refs = tostring(count.file.references)
+		if count.file.references ~= count.workspace.references then
+			refs = refs .. "(" .. tostring(count.workspace.references) .. ")"
+		end
+		refs = refs .. "R"
+	end
+	return "LSP: " .. defs .. " " .. refs
+end
+
+---@class LspCountSingleResult
+---@field definitions number amount of definitions
+---@field references number amount of references
+
+---@class LspCountResult
+---@field file LspCountSingleResult local file result
+---@field workspace LspCountSingleResult workspace result
+
+---returns the number of definitions/references as identified by LSP as table
+---for the current file and for the whole workspace.
+---@return LspCountResult? table contains the lsp count results
+---@nodiscard
+function M.lspCountTable()
 	-- abort when lsp loading or not capable of references
 	local currentBufNr = fn.bufnr()
 	local bufClients = lsp.get_active_clients { bufnr = currentBufNr }
@@ -53,30 +88,23 @@ function M.lspCount()
 		local capable = client.server_capabilities
 		if capable.referencesProvider and capable.definitionProvider then lspCapable = true end
 	end
-	if vim.api.nvim_get_mode().mode ~= "n" or lspLoading or not lspCapable then return "" end
+	if vim.api.nvim_get_mode().mode ~= "n" or lspLoading or not lspCapable then return nil end
 
 	-- trigger count, abort when none
 	requestLspRefCount() -- needs to be separated due to lsp calls being async
-	if lspCount.refWorkspace == 0 and lspCount.defWorkspace == 0 then return "" end
-	if not lspCount.refWorkspace then return "" end
+	if lspCount.refWorkspace == 0 and lspCount.defWorkspace == 0 then return nil end
+	if not lspCount.refWorkspace then return nil end
 
-	-- format lsp references/definitions count to be displayed in the status bar
-	local defs, refs = "", ""
-	if lspCount.defWorkspace then
-		defs = tostring(lspCount.defFile)
-		if lspCount.defFile ~= lspCount.defWorkspace then
-			defs = defs .. "(" .. tostring(lspCount.defWorkspace) .. ")"
-		end
-		defs = defs .. "D"
-	end
-	if lspCount.refWorkspace then
-		refs = tostring(lspCount.refFile)
-		if lspCount.refFile ~= lspCount.refWorkspace then
-			refs = refs .. "(" .. tostring(lspCount.refWorkspace) .. ")"
-		end
-		refs = refs .. "R"
-	end
-	return "LSP: " .. defs .. " " .. refs
+	return {
+		file = {
+			definitions = lspCount.defFile,
+			references = lspCount.refFile,
+		},
+		workspace = {
+			definitions = lspCount.defWorkspace,
+			references = lspCount.refWorkspace,
+		},
+	}
 end
 
 -- Simple alternative to fidget.nvim, ignoring null-ls
