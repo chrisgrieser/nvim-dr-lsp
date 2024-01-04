@@ -3,17 +3,17 @@
 ==============================================================================
 Table of Contents                                   *dr-lsp-table-of-contents*
 
-1. nvim-dr-lsp                                            |dr-lsp-nvim-dr-lsp|
-  - Statusline Components           |dr-lsp-nvim-dr-lsp-statusline-components|
-  - API                                               |dr-lsp-nvim-dr-lsp-api|
-  - Installation                             |dr-lsp-nvim-dr-lsp-installation|
-  - Highlights of definition and references|dr-lsp-nvim-dr-lsp-highlights-of-definition-and-references|
-  - Customizing the components |dr-lsp-nvim-dr-lsp-customizing-the-components|
-  - SimilarPlugins                         |dr-lsp-nvim-dr-lsp-similarplugins|
-  - Credits                                       |dr-lsp-nvim-dr-lsp-credits|
+1. nvim-dr-lsp ‍‍                              |dr-lsp-nvim-dr-lsp-‍‍|
+  - Statusline Components    |dr-lsp-nvim-dr-lsp-‍‍-statusline-components|
+  - API: lspCountTable          |dr-lsp-nvim-dr-lsp-‍‍-api:-lspcounttable|
+  - Installation                      |dr-lsp-nvim-dr-lsp-‍‍-installation|
+  - Highlights of definition and references|dr-lsp-nvim-dr-lsp-‍‍-highlights-of-definition-and-references|
+  - Customizing the components|dr-lsp-nvim-dr-lsp-‍‍-customizing-the-components|
+  - SimilarPlugins                  |dr-lsp-nvim-dr-lsp-‍‍-similarplugins|
+  - Credits                                |dr-lsp-nvim-dr-lsp-‍‍-credits|
 
 ==============================================================================
-1. nvim-dr-lsp                                            *dr-lsp-nvim-dr-lsp*
+1. nvim-dr-lsp ‍‍                              *dr-lsp-nvim-dr-lsp-‍‍*
 
 
 
@@ -25,8 +25,7 @@ the cursor and displays their count in the statusline.
 - |dr-lsp-statusline-components|
     - |dr-lsp-`lspcount`|
     - |dr-lsp-`lspprogress`|
-- |dr-lsp-api|
-    - |dr-lsp-`lspcounttable`|
+- |dr-lsp-api:-`lspcounttable`|
 - |dr-lsp-installation|
 - |dr-lsp-highlights-of-definition-and-references|
 - |dr-lsp-customizing-the-components|
@@ -34,7 +33,7 @@ the cursor and displays their count in the statusline.
 - |dr-lsp-credits|
 
 
-STATUSLINE COMPONENTS               *dr-lsp-nvim-dr-lsp-statusline-components*
+STATUSLINE COMPONENTS        *dr-lsp-nvim-dr-lsp-‍‍-statusline-components*
 
 
 LSPCOUNT ~
@@ -64,12 +63,9 @@ LSPPROGRESS ~
 - Ignores `null-ls` and `none-ls`.
 
 
-API                                                   *dr-lsp-nvim-dr-lsp-api*
+API: LSPCOUNTTABLE              *dr-lsp-nvim-dr-lsp-‍‍-api:-lspcounttable*
 
-
-LSPCOUNTTABLE ~
-
-Returns the lspCount information as Lua table for customize formatting
+Returns the `lspCount` information as Lua table for custom formatting.
 
 >lua
     {
@@ -85,7 +81,7 @@ Returns the lspCount information as Lua table for customize formatting
 <
 
 
-INSTALLATION                                 *dr-lsp-nvim-dr-lsp-installation*
+INSTALLATION                          *dr-lsp-nvim-dr-lsp-‍‍-installation*
 
 >lua
     -- lazy.nvim
@@ -111,7 +107,7 @@ There is no `.setup` call for this plugin. Just add the components to your
 statusline.
 
 
-HIGHLIGHTS OF DEFINITION AND REFERENCES*dr-lsp-nvim-dr-lsp-highlights-of-definition-and-references*
+HIGHLIGHTS OF DEFINITION AND REFERENCES*dr-lsp-nvim-dr-lsp-‍‍-highlights-of-definition-and-references*
 
 - Definitions are under-dashed, references are under-dotted.
 - These are set up automatically for you as soon as the buffer is attached to an
@@ -120,7 +116,7 @@ HIGHLIGHTS OF DEFINITION AND REFERENCES*dr-lsp-nvim-dr-lsp-highlights-of-definit
     before loading the plugin.
 
 
-CUSTOMIZING THE COMPONENTS     *dr-lsp-nvim-dr-lsp-customizing-the-components*
+CUSTOMIZING THE COMPONENTS*dr-lsp-nvim-dr-lsp-‍‍-customizing-the-components*
 
 There are no built-in options to format the components, since formatting can
 already be done with most statusline plugins. With Lualine, for example, you
@@ -138,7 +134,7 @@ can use the `fmt` option
 <
 
 
-SIMILARPLUGINS                             *dr-lsp-nvim-dr-lsp-similarplugins*
+SIMILARPLUGINS                      *dr-lsp-nvim-dr-lsp-‍‍-similarplugins*
 
 - LSP-Lens <https://github.com/VidocqH/lsp-lens.nvim>
 - Fidget.nvim <https://github.com/j-hui/fidget.nvim>
@@ -146,9 +142,9 @@ SIMILARPLUGINS                             *dr-lsp-nvim-dr-lsp-similarplugins*
 - symbol-usage.nvim <https://github.com/Wansmer/symbol-usage.nvim>
 
 
-CREDITS                                           *dr-lsp-nvim-dr-lsp-credits*
+CREDITS                                    *dr-lsp-nvim-dr-lsp-‍‍-credits*
 
-Basic idea for the progress component from folke
+The basic idea for the progress component came from folke
 <https://www.reddit.com/r/neovim/comments/o4bguk/comment/h2kcjxa/>. **About
 Me** In my day job, I am a sociologist studying the social mechanisms
 underlying the digital economy. For my PhD project, I investigate the
