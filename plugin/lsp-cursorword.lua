@@ -1,9 +1,15 @@
 if vim.g.dr_lsp_no_highlight then return end
 --------------------------------------------------------------------------------
 
+local activeOnBufs = {}
+
 ---@param bufnr integer
 local function setupLspCursorword(bufnr)
+	if activeOnBufs[bufnr] then return end -- GUARD ensure idempotency
+
 	local group = vim.api.nvim_create_augroup("LspDocumentHighlight", {})
+	activeOnBufs[bufnr] = group
+
 	vim.api.nvim_create_autocmd("CursorHold", {
 		callback = vim.lsp.buf.document_highlight,
 		buffer = bufnr,
@@ -14,15 +20,17 @@ local function setupLspCursorword(bufnr)
 		buffer = bufnr,
 		group = group,
 	})
-
 	-- LspDetach needed e.g. for when user restarts LSP server
 	vim.api.nvim_create_autocmd("LspDetach", {
 		callback = function()
 			vim.lsp.buf.clear_references()
-			pcall(vim.api.nvim_del_augroup_by_id, group)
+			local deleted = pcall(vim.api.nvim_del_augroup_by_id, group)
+			if deleted then
+				activeOnBufs[bufnr] = nil
+				return true -- delete this autocmd itself on success
+			end
 		end,
 		buffer = bufnr,
-		group = group,
 	})
 end
 
