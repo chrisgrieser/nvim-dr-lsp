@@ -17,11 +17,15 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			buffer = args.buf,
 			group = group,
 		})
+
+		-- LspDetach needed e.g. for when user restarts LSP server
 		vim.api.nvim_create_autocmd("LspDetach", {
 			callback = function()
 				vim.lsp.buf.clear_references()
 				pcall(vim.api.nvim_del_augroup_by_id, group)
 			end,
+			buffer = args.buf,
+			group = group,
 		})
 	end,
 })
@@ -34,8 +38,9 @@ local function setupHighlights()
 	vim.api.nvim_set_hl(0, "LspReferenceText", {}) -- too much noise, as is underlines e.g. strings
 end
 
+-- persist upon colorscheme changes
+vim.api.nvim_create_autocmd("ColorScheme", { callback = setupHighlights })
+
 -- initialization
 setupHighlights()
 
--- persist upon colorscheme changes
-vim.api.nvim_create_autocmd("ColorScheme", { callback = setupHighlights })
