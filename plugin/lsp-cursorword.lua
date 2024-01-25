@@ -44,7 +44,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 -- initialization (needed in case this plugin is loaded after LspAttach)
 local curBufnr = vim.api.nvim_get_current_buf()
-local clientWithDocumentHighlight = vim.lsp.get_clients {
+-- former is deprecated with nvim 0.10
+local getClients = vim.lsp.get_clients or vim.lsp.get_active_clients 
+
+local clientWithDocumentHighlight = getClients {
 	bufnr = curBufnr,
 	filter = function(client) return client.server_capabilities.documentHighlightProvider end,
 }
