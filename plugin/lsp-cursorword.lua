@@ -3,8 +3,9 @@ if vim.g.dr_lsp_no_highlight then return end
 
 local activeOnBufs = {}
 
----@param bufnr integer
+---@param bufnr? integer
 local function setupLspCursorword(bufnr)
+	if not bufnr then bufnr = vim.api.nvim_get_current_buf() end
 	if activeOnBufs[bufnr] then return end -- GUARD ensure idempotency
 
 	local group = vim.api.nvim_create_augroup("LspDocumentHighlight", {})
@@ -42,16 +43,14 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
--- initialization (needed in case this plugin is loaded after LspAttach)
-local curBufnr = vim.api.nvim_get_current_buf()
--- former is deprecated with nvim 0.10
-local getClients = vim.lsp.get_clients or vim.lsp.get_active_clients 
-
-local clientWithDocumentHighlight = getClients {
-	bufnr = curBufnr,
-	filter = function(client) return client.server_capabilities.documentHighlightProvider end,
-}
-if #clientWithDocumentHighlight > 0 then setupLspCursorword(curBufnr) end ---@diagnostic disable-line: param-type-mismatch
+-- initialization
+-- (needed in case this plugin is loaded after LspAttach)
+local getClients = vim.lsp.get_clients or vim.lsp.get_active_clients -- former is deprecated w/ nvim 0.10
+local clientWithDocumentHl = vim.tbl_filter(
+	function(client) return client.server_capabilities.documentHighlightProvider end,
+	getClients { bufnr = 0 }
+)
+if #clientWithDocumentHl > 0 then setupLspCursorword() end ---@diagnostic disable-line: param-type-mismatch
 
 --------------------------------------------------------------------------------
 
