@@ -3,6 +3,7 @@ if version.major == 0 and version.minor < 10 then
 	vim.notify("nvim-dr-lsp requires at least nvim 0.10.", vim.log.levels.WARN)
 	return
 end
+
 --------------------------------------------------------------------------------
 
 local M = {}
@@ -112,19 +113,6 @@ function M.lspCountTable()
 			references = lspCount.refWorkspace,
 		},
 	}
-end
-
---------------------------------------------------------------------------------
-
--- Simple alternative to fidget.nvim, ignoring null-ls
--- based on snippet from u/folke https://www.reddit.com/r/neovim/comments/o4bguk/comment/h2kcjxa/
-function M.lspProgress()
-	local messages = vim.lsp.status()
-	if messages == "" then return "" end
-	local spinners = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
-	local ms = vim.uv.hrtime() / 1000000
-	local frame = math.floor(ms / 120) % #spinners
-	return spinners[frame + 1] .. " " .. messages
 end
 
 --------------------------------------------------------------------------------
