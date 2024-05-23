@@ -4,10 +4,9 @@
 Table of Contents                                   *dr-lsp-table-of-contents*
 
 1. nvim-dr-lsp ‍‍                              |dr-lsp-nvim-dr-lsp-‍‍|
-  - Statusline Components    |dr-lsp-nvim-dr-lsp-‍‍-statusline-components|
   - Installation                      |dr-lsp-nvim-dr-lsp-‍‍-installation|
-  - Highlights of definition and references|dr-lsp-nvim-dr-lsp-‍‍-highlights-of-definition-and-references|
-  - Customizing the components|dr-lsp-nvim-dr-lsp-‍‍-customizing-the-components|
+  - Highlights of definitions and references|dr-lsp-nvim-dr-lsp-‍‍-highlights-of-definitions-and-references|
+  - Definition and reference count in the statusbar|dr-lsp-nvim-dr-lsp-‍‍-definition-and-reference-count-in-the-statusbar|
   - Similar Plugins                |dr-lsp-nvim-dr-lsp-‍‍-similar-plugins|
   - Credits                                |dr-lsp-nvim-dr-lsp-‍‍-credits|
 2. Links                                                        |dr-lsp-links|
@@ -22,43 +21,12 @@ Table of Contents                                   *dr-lsp-table-of-contents*
 Lightweight plugin that highlights definitions and references of the word under
 the cursor and displays their count in the statusline.
 
-- |dr-lsp-statusline-components|
-    - |dr-lsp-`lspcount`|
-    - |dr-lsp-`lspprogress`|
+- |dr-lsp-statusline-component|
 - |dr-lsp-installation|
-- |dr-lsp-highlights-of-definition-and-references|
-- |dr-lsp-customizing-the-components|
+- |dr-lsp-highlights-of-definitions-and-references|
+- |dr-lsp-definition-and-reference-count-in-the-statusbar|
 - |dr-lsp-similar-plugins|
 - |dr-lsp-credits|
-
-
-STATUSLINE COMPONENTS        *dr-lsp-nvim-dr-lsp-‍‍-statusline-components*
-
-
-LSPCOUNT ~
-
-**Definitions and references inside current buffer**
-
->text
-    LSP: 2D 6R
-<
-
-**Definitions or references outside current buffer**
-
->text
-    LSP: 1(2)D 4(10)R
-<
-
-- 1 definition in the current buffer
-- 2 definitions in the workspace
-- 4 references in the current buffer
-- 10 definitions in the workspace
-
-
-LSPPROGRESS ~
-
-LSP activity spinner, similar to fidget.nvim
-<https://github.com/j-hui/fidget.nvim>, but less obtrusive.
 
 
 INSTALLATION                          *dr-lsp-nvim-dr-lsp-‍‍-installation*
@@ -73,23 +41,11 @@ The plugin requires at least nvim 0.10.
     use { "chrisgrieser/nvim-dr-lsp" }
 <
 
->lua
-    -- adding the components to lualine.nvim
-    {
-        sections = {
-            lualine_c = {
-                { require("dr-lsp").lspCount },
-                { require("dr-lsp").lspProgress },
-            },
-        }
-    }
-<
-
 There is no `.setup` call for this plugin. Just add the components to your
 statusline.
 
 
-HIGHLIGHTS OF DEFINITION AND REFERENCES*dr-lsp-nvim-dr-lsp-‍‍-highlights-of-definition-and-references*
+HIGHLIGHTS OF DEFINITIONS AND REFERENCES*dr-lsp-nvim-dr-lsp-‍‍-highlights-of-definitions-and-references*
 
 - Definitions are under-dashed, references are under-dotted.
 - These are set up automatically for you as soon as the buffer is attached to an
@@ -98,10 +54,38 @@ HIGHLIGHTS OF DEFINITION AND REFERENCES*dr-lsp-nvim-dr-lsp-‍‍-highlights-of-
     before loading the plugin.
 
 
-CUSTOMIZING THE COMPONENTS*dr-lsp-nvim-dr-lsp-‍‍-customizing-the-components*
+DEFINITION AND REFERENCE COUNT IN THE STATUSBAR*dr-lsp-nvim-dr-lsp-‍‍-definition-and-reference-count-in-the-statusbar*
+
+Definitions and references **inside** current buffer:
+
+>text
+    LSP: 2D 6R
+<
+
+Definitions or references **outside** current buffer
+
+>text
+    LSP: 1(2)D 4(10)R
+<
+
+- 1 definition in the current buffer
+- 2 definitions in the workspace
+- 4 references in the current buffer
+- 10 definitions in the workspace
+
+>lua
+    -- adding the component to lualine.nvim
+    {
+        sections = {
+            lualine_c = {
+                { require("dr-lsp").lspCount },
+            },
+        }
+    }
+<
 
 There are no built-in options to format the components, since formatting can
-already be done with most statusline plugins. With Lualine, for example, you
+already be done with most statusline plugins. With `Lualine`, for example, you
 can use the `fmt` option
 <https://github.com/nvim-lualine/lualine.nvim#global-options>
 
@@ -115,8 +99,8 @@ can use the `fmt` option
     },
 <
 
-**API:lspCountTable** `require("dr-lsp").lspCountTable()` returns the
-`lspCount` information as Lua table for custom formatting.
+Alternatively,`require("dr-lsp").lspCountTable()` returns the `lspCount`
+information as lua table for custom formatting:
 
 >lua
     {
@@ -135,7 +119,6 @@ can use the `fmt` option
 SIMILAR PLUGINS                    *dr-lsp-nvim-dr-lsp-‍‍-similar-plugins*
 
 - LSP-Lens <https://github.com/VidocqH/lsp-lens.nvim>
-- Fidget.nvim <https://github.com/j-hui/fidget.nvim>
 - action-hints.nvim <https://github.com/roobert/action-hints.nvim>
 - symbol-usage.nvim <https://github.com/Wansmer/symbol-usage.nvim>
 
