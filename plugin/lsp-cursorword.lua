@@ -8,7 +8,7 @@ local function setupLspCursorword(bufnr)
 	if not bufnr then bufnr = vim.api.nvim_get_current_buf() end
 	if activeOnBufs[bufnr] then return end -- GUARD ensure idempotency
 
-	local group = vim.api.nvim_create_augroup("LspDocumentHighlight", {})
+	local group = vim.api.nvim_create_augroup("LspCursorWord", {})
 	activeOnBufs[bufnr] = group
 
 	vim.api.nvim_create_autocmd("CursorHold", {
@@ -37,7 +37,7 @@ end
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(args)
-		local capabilities = vim.lsp.get_client_by_id(args.data.client_id).server_capabilities
+		local capabilities = vim.lsp.get_client_by_id(args.data.client_id).server_capabilities or {}
 		if not capabilities.documentHighlightProvider then return end
 		setupLspCursorword(args.buf)
 	end,
@@ -45,12 +45,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 -- initialization
 -- (needed in case this plugin is loaded after LspAttach)
-local getClients = vim.lsp.get_clients or vim.lsp.get_active_clients -- former is deprecated w/ nvim 0.10
 local clientWithDocumentHl = vim.tbl_filter(
 	function(client) return client.server_capabilities.documentHighlightProvider end,
-	getClients { bufnr = 0 }
+	vim.lsp.get_clients { bufnr = 0 }
 )
-if #clientWithDocumentHl > 0 then setupLspCursorword() end ---@diagnostic disable-line: param-type-mismatch
+if #clientWithDocumentHl > 0 then setupLspCursorword() end 
 
 --------------------------------------------------------------------------------
 
@@ -61,7 +60,10 @@ local function setupHighlights()
 end
 
 -- persist highlights upon colorscheme changes
-vim.api.nvim_create_autocmd("ColorScheme", { callback = setupHighlights })
+vim.api.nvim_create_autocmd("ColorScheme", {
+	group = vim.api.nvim_create_augroup("LspCursorWordHighlightGroups", {}),
+	callback = setupHighlights,
+})
 
 -- initialization
 setupHighlights()
