@@ -1,16 +1,16 @@
-*dr-lsp.txt*            For NVIM v0.8.0           Last change: 2024 January 25
+*dr-lsp.txt*              For NVIM v0.8.0             Last change: 2024 May 23
 
 ==============================================================================
 Table of Contents                                   *dr-lsp-table-of-contents*
 
 1. nvim-dr-lsp ‍‍                              |dr-lsp-nvim-dr-lsp-‍‍|
   - Statusline Components    |dr-lsp-nvim-dr-lsp-‍‍-statusline-components|
-  - API: lspCountTable          |dr-lsp-nvim-dr-lsp-‍‍-api:-lspcounttable|
   - Installation                      |dr-lsp-nvim-dr-lsp-‍‍-installation|
   - Highlights of definition and references|dr-lsp-nvim-dr-lsp-‍‍-highlights-of-definition-and-references|
   - Customizing the components|dr-lsp-nvim-dr-lsp-‍‍-customizing-the-components|
-  - SimilarPlugins                  |dr-lsp-nvim-dr-lsp-‍‍-similarplugins|
+  - Similar Plugins                |dr-lsp-nvim-dr-lsp-‍‍-similar-plugins|
   - Credits                                |dr-lsp-nvim-dr-lsp-‍‍-credits|
+2. Links                                                        |dr-lsp-links|
 
 ==============================================================================
 1. nvim-dr-lsp ‍‍                              *dr-lsp-nvim-dr-lsp-‍‍*
@@ -25,7 +25,6 @@ the cursor and displays their count in the statusline.
 - |dr-lsp-statusline-components|
     - |dr-lsp-`lspcount`|
     - |dr-lsp-`lspprogress`|
-- |dr-lsp-api:-`lspcounttable`|
 - |dr-lsp-installation|
 - |dr-lsp-highlights-of-definition-and-references|
 - |dr-lsp-customizing-the-components|
@@ -58,30 +57,13 @@ LSPCOUNT ~
 
 LSPPROGRESS ~
 
-- LSP activity spinner, similar to
-    fidget.nvim <https://github.com/j-hui/fidget.nvim>, but less obtrusive.
-- Ignores `null-ls` and `none-ls`.
-
-
-API: LSPCOUNTTABLE              *dr-lsp-nvim-dr-lsp-‍‍-api:-lspcounttable*
-
-Returns the `lspCount` information as Lua table for custom formatting.
-
->lua
-    {
-        file = {
-            definitions = 1,
-            references = 4,
-        },
-        workspace = {
-            definitions = 2,
-            references = 10,
-        },
-    }
-<
+LSP activity spinner, similar to fidget.nvim
+<https://github.com/j-hui/fidget.nvim>, but less obtrusive.
 
 
 INSTALLATION                          *dr-lsp-nvim-dr-lsp-‍‍-installation*
+
+The plugin requires at least nvim 0.10.
 
 >lua
     -- lazy.nvim
@@ -133,8 +115,24 @@ can use the `fmt` option
     },
 <
 
+**API:lspCountTable** `require("dr-lsp").lspCountTable()` returns the
+`lspCount` information as Lua table for custom formatting.
 
-SIMILARPLUGINS                      *dr-lsp-nvim-dr-lsp-‍‍-similarplugins*
+>lua
+    {
+        file = {
+            definitions = 1,
+            references = 4,
+        },
+        workspace = {
+            definitions = 2,
+            references = 10,
+        },
+    }
+<
+
+
+SIMILAR PLUGINS                    *dr-lsp-nvim-dr-lsp-‍‍-similar-plugins*
 
 - LSP-Lens <https://github.com/VidocqH/lsp-lens.nvim>
 - Fidget.nvim <https://github.com/j-hui/fidget.nvim>
@@ -144,20 +142,16 @@ SIMILARPLUGINS                      *dr-lsp-nvim-dr-lsp-‍‍-similarplugins*
 
 CREDITS                                    *dr-lsp-nvim-dr-lsp-‍‍-credits*
 
-The basic idea for the progress component came from folke
-<https://www.reddit.com/r/neovim/comments/o4bguk/comment/h2kcjxa/>. **About
-Me** In my day job, I am a sociologist studying the social mechanisms
-underlying the digital economy. For my PhD project, I investigate the
-governance of the app economy and how software ecosystems manage the tension
-between innovation and compatibility. If you are interested in this subject,
-feel free to get in touch.
+In my day job, I am a sociologist studying the social mechanisms underlying the
+digital economy. For my PhD project, I investigate the governance of the app
+economy and how software ecosystems manage the tension between innovation and
+compatibility. If you are interested in this subject, feel free to get in
+touch.
 
-**Profiles** - reddit <https://www.reddit.com/user/pseudometapseudo> - Discord
-<https://discordapp.com/users/462774483044794368/> - Academic Website
-<https://chris-grieser.de/> - Twitter <https://twitter.com/pseudo_meta> -
-Mastodon <https://pkm.social/@pseudometa> - ResearchGate
-<https://www.researchgate.net/profile/Christopher-Grieser> - LinkedIn
-<https://www.linkedin.com/in/christopher-grieser-ba693b17a/>
+- Academic Website <https://chris-grieser.de/>
+- Mastodon <https://pkm.social/@pseudometa>
+- ResearchGate <https://www.researchgate.net/profile/Christopher-Grieser>
+- LinkedIn <https://www.linkedin.com/in/christopher-grieser-ba693b17a/>
 
 
 
