@@ -67,6 +67,7 @@ Returns the `lspCount` information as Lua table for custom formatting.
 ```
 
 ## Installation
+The plugin requires at least nvim 0.10.
 
 ```lua
 -- lazy.nvim
