@@ -16,7 +16,6 @@ the cursor and displays their count in the statusline.
 - [Statusline Components](#statusline-components)
 	* [`lspCount`](#lspcount)
 	* [`lspProgress`](#lspprogress)
-- [API: `lspCountTable`](#api-lspcounttable)
 - [Installation](#installation)
 - [Highlights of definition and references](#highlights-of-definition-and-references)
 - [Customizing the components](#customizing-the-components)
@@ -46,25 +45,8 @@ LSP: 1(2)D 4(10)R
 - 10 definitions in the workspace
 
 ### `lspProgress`
-- LSP activity spinner, similar to
-  [fidget.nvim](https://github.com/j-hui/fidget.nvim), but less obtrusive.
-- Ignores `null-ls` and `none-ls`.
-
-## API: `lspCountTable`
-Returns the `lspCount` information as Lua table for custom formatting.
-
-```lua
-{
-	file = {
-		definitions = 1,
-		references = 4,
-	},
-	workspace = {
-		definitions = 2,
-		references = 10,
-	},
-}
-```
+LSP activity spinner, similar to
+[fidget.nvim](https://github.com/j-hui/fidget.nvim), but less obtrusive.
 
 ## Installation
 The plugin requires at least nvim 0.10.
@@ -114,28 +96,36 @@ lualine_c = {
 },
 ```
 
+__API: `lspCountTable`__  
+`require("dr-lsp").lspCountTable()` returns the `lspCount` information as Lua table for custom formatting.
+
+```lua
+{
+	file = {
+		definitions = 1,
+		references = 4,
+	},
+	workspace = {
+		definitions = 2,
+		references = 10,
+	},
+}
+```
+
 ## Similar Plugins
 - [LSP-Lens](https://github.com/VidocqH/lsp-lens.nvim)
 - [Fidget.nvim](https://github.com/j-hui/fidget.nvim)
 - [action-hints.nvim](https://github.com/roobert/action-hints.nvim)
 - [symbol-usage.nvim](https://github.com/Wansmer/symbol-usage.nvim)
 
-## Credits
-<!-- LTeX: enabled=false -->
-The basic idea for the progress component came from [folke](https://www.reddit.com/r/neovim/comments/o4bguk/comment/h2kcjxa/).
-<!-- LTeX: enabled=true -->
 <!-- vale Google.FirstPerson = NO -->
-__About Me__  
+## Credits
 In my day job, I am a sociologist studying the social mechanisms underlying the
 digital economy. For my PhD project, I investigate the governance of the app
 economy and how software ecosystems manage the tension between innovation and
 compatibility. If you are interested in this subject, feel free to get in touch.
 
-__Profiles__  
-- [reddit](https://www.reddit.com/user/pseudometapseudo)
-- [Discord](https://discordapp.com/users/462774483044794368/)
 - [Academic Website](https://chris-grieser.de/)
-- [Twitter](https://twitter.com/pseudo_meta)
 - [Mastodon](https://pkm.social/@pseudometa)
 - [ResearchGate](https://www.researchgate.net/profile/Christopher-Grieser)
 - [LinkedIn](https://www.linkedin.com/in/christopher-grieser-ba693b17a/)
