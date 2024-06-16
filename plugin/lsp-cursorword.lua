@@ -49,9 +49,11 @@ local clientWithDocumentHl = vim.tbl_filter(
 	function(client) return client.server_capabilities.documentHighlightProvider end,
 	vim.lsp.get_clients { bufnr = 0 }
 )
-if #clientWithDocumentHl > 0 then setupLspCursorword() end 
+if #clientWithDocumentHl > 0 then setupLspCursorword() end
 
 --------------------------------------------------------------------------------
+-- HIGHLIGHTS
+local group = vim.api.nvim_create_augroup("LspCursorWordHighlights", {})
 
 local function setupHighlights()
 	vim.api.nvim_set_hl(0, "LspReferenceWrite", { underdashed = true }) -- definition
@@ -61,9 +63,37 @@ end
 
 -- persist highlights upon colorscheme changes
 vim.api.nvim_create_autocmd("ColorScheme", {
-	group = vim.api.nvim_create_augroup("LspCursorWordHighlightGroups", {}),
+	group = group,
 	callback = setupHighlights,
 })
+setupHighlights() -- initialization
 
--- initialization
-setupHighlights()
+--------------------------------------------------------------------------------
+-- PAUSE HIGHLIGHTS WHEN IN SPECIAL WINDOWS
+-- FIX: For plugins using backdrop-like effects, there is some winblend bug,
+-- which causes the underlines to be displayed in ugly red. We fix this by
+-- temporarily disabling the underline effects set by this plugin.
+local function toggleHighlights()
+	local regularBuffer = vim.bo.buftype == ""
+	if regularBuffer then
+		setupHighlights()
+	else
+		-- Needs to change highlights, as `vim.lsp.buf.clear_references` only
+		-- works on the current buffer.
+		vim.api.nvim_set_hl(0, "LspReferenceWrite", {})
+		vim.api.nvim_set_hl(0, "LspReferenceRead", {})
+	end
+end
+
+vim.api.nvim_create_autocmd({ "WinEnter", "FileType" }, {
+	group = group,
+	callback = function(ctx)
+		if ctx.event == "WinEnter" then
+			-- WinEnter needs a delay so buftype changes set by plugins are picked up
+			vim.defer_fn(toggleHighlights, 1)
+		elseif ctx.event == "FileType" and ctx.match == "DressingInput" then
+			-- Dressing.nvim needs to be detected separately, as it uses `noautocmd`
+			toggleHighlights()
+		end
+	end,
+})
