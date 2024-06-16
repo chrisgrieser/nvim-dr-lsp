@@ -20,7 +20,7 @@ local function requestLspRefCount()
 		lspCount = {}
 		return
 	end
-	local params = lsp.util.make_position_params(0) 
+	local params = lsp.util.make_position_params(0)
 	params.context = { includeDeclaration = false }
 	local thisFileUri = vim.uri_from_fname(vim.api.nvim_buf_get_name(0))
 
