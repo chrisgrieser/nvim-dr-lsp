@@ -52,6 +52,9 @@ HIGHLIGHTS OF DEFINITIONS AND REFERENCES*dr-lsp-nvim-dr-lsp-‍‍-highlights-of
     LSP client.
 - To disable the highlights feature, set `vim.g.dr_lsp_no_highlight = true`
     before loading the plugin.
+- The time for the highlights to show up depends on the |updatetime
+    option|. It’s
+    recommended to set it to something like 300 ms.
 
 
 DEFINITION AND REFERENCE COUNT IN THE STATUSBAR*dr-lsp-nvim-dr-lsp-‍‍-definition-and-reference-count-in-the-statusbar*
