@@ -42,6 +42,9 @@ statusline.
   LSP client.
 - To disable the highlights feature, set `vim.g.dr_lsp_no_highlight = true`
   before loading the plugin.
+- The time for the highlights to show up depends on the [updatetime
+  option](https://neovim.io/doc/user/options.html#'updatetime'). It's
+  recommended to set it to something like 300&nbsp;ms.
 
 ## Definition and reference count in the statusbar
 
