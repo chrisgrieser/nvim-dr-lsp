@@ -5,8 +5,9 @@ Table of Contents                                   *dr-lsp-table-of-contents*
 
 1. nvim-dr-lsp ‍‍                              |dr-lsp-nvim-dr-lsp-‍‍|
   - Installation                      |dr-lsp-nvim-dr-lsp-‍‍-installation|
-  - Highlights of definitions and references|dr-lsp-nvim-dr-lsp-‍‍-highlights-of-definitions-and-references|
-  - Definition and reference count in the statusbar|dr-lsp-nvim-dr-lsp-‍‍-definition-and-reference-count-in-the-statusbar|
+  - Configuration                    |dr-lsp-nvim-dr-lsp-‍‍-configuration|
+  - Highlight references for the word under the cursor|dr-lsp-nvim-dr-lsp-‍‍-highlight-references-for-the-word-under-the-cursor|
+  - Statusline: Definition and reference count|dr-lsp-nvim-dr-lsp-‍‍-statusline:-definition-and-reference-count|
   - Similar Plugins                |dr-lsp-nvim-dr-lsp-‍‍-similar-plugins|
   - Credits                                |dr-lsp-nvim-dr-lsp-‍‍-credits|
 2. Links                                                        |dr-lsp-links|
@@ -21,10 +22,10 @@ Table of Contents                                   *dr-lsp-table-of-contents*
 Lightweight plugin that highlights definitions and references of the word under
 the cursor and displays their count in the statusline.
 
-- |dr-lsp-statusline-component|
 - |dr-lsp-installation|
-- |dr-lsp-highlights-of-definitions-and-references|
-- |dr-lsp-definition-and-reference-count-in-the-statusbar|
+- |dr-lsp-configuration|
+- |dr-lsp-highlight-references-for-the-word-under-the-cursor|
+- |dr-lsp-statusline:-definition-and-reference-count|
 - |dr-lsp-similar-plugins|
 - |dr-lsp-credits|
 
@@ -35,29 +36,47 @@ The plugin requires at least nvim 0.10.
 
 >lua
     -- lazy.nvim
-    { "chrisgrieser/nvim-dr-lsp" },
+    { 
+        "chrisgrieser/nvim-dr-lsp",
+        event = "LspAttach",
+        opts = {},
+    },
     
     -- packer
-    use { "chrisgrieser/nvim-dr-lsp" }
+    use { 
+        "chrisgrieser/nvim-dr-lsp",
+        config = function() require("dr-lsp").setup({}) end,
+    }
 <
 
-There is no `.setup` call for this plugin. Just add the components to your
-statusline.
+
+CONFIGURATION                        *dr-lsp-nvim-dr-lsp-‍‍-configuration*
+
+>lua
+    -- default config
+    require("dr-lsp").setup {
+        highlightCursorWordReferences = {
+            enable = true,
+        },
+    }
+<
 
 
-HIGHLIGHTS OF DEFINITIONS AND REFERENCES*dr-lsp-nvim-dr-lsp-‍‍-highlights-of-definitions-and-references*
+HIGHLIGHT REFERENCES FOR THE WORD UNDER THE CURSOR*dr-lsp-nvim-dr-lsp-‍‍-highlight-references-for-the-word-under-the-cursor*
 
 - Definitions are under-dashed, references are under-dotted.
 - These are set up automatically for you as soon as the buffer is attached to an
     LSP client.
-- To disable the highlights feature, set `vim.g.dr_lsp_no_highlight = true`
-    before loading the plugin.
 - The time for the highlights to show up depends on the |updatetime
     option|. It’s
     recommended to set it to something like 300 ms.
 
 
-DEFINITION AND REFERENCE COUNT IN THE STATUSBAR*dr-lsp-nvim-dr-lsp-‍‍-definition-and-reference-count-in-the-statusbar*
+  [!NOTE] In a previous version of this plugin, the highlights were enabled
+  automatically. Now, the highlights are only enabled when the `.setup()` call is
+  made.
+
+STATUSLINE: DEFINITION AND REFERENCE COUNT*dr-lsp-nvim-dr-lsp-‍‍-statusline:-definition-and-reference-count*
 
 Definitions and references **inside** current buffer:
 
