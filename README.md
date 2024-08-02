@@ -16,7 +16,7 @@ the cursor and displays their count in the statusline.
 - [Installation](#installation)
 - [Configuration](#configuration)
 - [Highlight references for the word under the cursor](#highlight-references-for-the-word-under-the-cursor)
-- [Statusline: Definition and reference count](#statusline-definition-and-reference-count)
+- [Statusline: definition and reference count](#statusline-definition-and-reference-count)
 - [Similar Plugins](#similar-plugins)
 - [Credits](#credits)
 
@@ -53,8 +53,6 @@ require("dr-lsp").setup {
 
 ## Highlight references for the word under the cursor
 - Definitions are under-dashed, references are under-dotted.
-- These are set up automatically for you as soon as the buffer is attached to an
-  LSP client.
 - The time for the highlights to show up depends on the [updatetime
   option](https://neovim.io/doc/user/options.html#'updatetime'). It's
   recommended to set it to something like 300&nbsp;ms.
@@ -64,7 +62,7 @@ require("dr-lsp").setup {
 > automatically. Now, the highlights are only enabled when the `.setup()` call
 > is made.
 
-## Statusline: Definition and reference count
+## Statusline: definition and reference count
 Definitions and references **inside** current buffer:
 
 ```text
