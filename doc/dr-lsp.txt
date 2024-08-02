@@ -7,7 +7,7 @@ Table of Contents                                   *dr-lsp-table-of-contents*
   - Installation                      |dr-lsp-nvim-dr-lsp-‍‍-installation|
   - Configuration                    |dr-lsp-nvim-dr-lsp-‍‍-configuration|
   - Highlight references for the word under the cursor|dr-lsp-nvim-dr-lsp-‍‍-highlight-references-for-the-word-under-the-cursor|
-  - Statusline: Definition and reference count|dr-lsp-nvim-dr-lsp-‍‍-statusline:-definition-and-reference-count|
+  - Statusline: definition and reference count|dr-lsp-nvim-dr-lsp-‍‍-statusline:-definition-and-reference-count|
   - Similar Plugins                |dr-lsp-nvim-dr-lsp-‍‍-similar-plugins|
   - Credits                                |dr-lsp-nvim-dr-lsp-‍‍-credits|
 2. Links                                                        |dr-lsp-links|
@@ -65,8 +65,6 @@ CONFIGURATION                        *dr-lsp-nvim-dr-lsp-‍‍-configuration*
 HIGHLIGHT REFERENCES FOR THE WORD UNDER THE CURSOR*dr-lsp-nvim-dr-lsp-‍‍-highlight-references-for-the-word-under-the-cursor*
 
 - Definitions are under-dashed, references are under-dotted.
-- These are set up automatically for you as soon as the buffer is attached to an
-    LSP client.
 - The time for the highlights to show up depends on the |updatetime
     option|. It’s
     recommended to set it to something like 300 ms.
