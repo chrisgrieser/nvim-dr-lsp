@@ -13,10 +13,10 @@ the cursor and displays their count in the statusline.
 
 <!-- toc -->
 
-- [Statusline Component](#statusline-component)
 - [Installation](#installation)
-- [Highlights of definitions and references](#highlights-of-definitions-and-references)
-- [Definition and reference count in the statusbar](#definition-and-reference-count-in-the-statusbar)
+- [Configuration](#configuration)
+- [Highlight references for the word under the cursor](#highlight-references-for-the-word-under-the-cursor)
+- [Statusline: Definition and reference count](#statusline-definition-and-reference-count)
 - [Similar Plugins](#similar-plugins)
 - [Credits](#credits)
 
@@ -27,27 +27,44 @@ The plugin requires at least nvim 0.10.
 
 ```lua
 -- lazy.nvim
-{ "chrisgrieser/nvim-dr-lsp" },
+{ 
+	"chrisgrieser/nvim-dr-lsp",
+	event = "LspAttach",
+	opts = {},
+},
 
 -- packer
-use { "chrisgrieser/nvim-dr-lsp" }
+use { 
+	"chrisgrieser/nvim-dr-lsp",
+	config = function() require("dr-lsp").setup({}) end,
+}
 ```
 
-There is no `.setup` call for this plugin. Just add the components to your
-statusline.
+## Configuration
 
-## Highlights of definitions and references
+```lua
+-- default config
+require("dr-lsp").setup {
+	highlightCursorWordReferences = {
+		enable = true,
+	},
+}
+```
+
+## Highlight references for the word under the cursor
 - Definitions are under-dashed, references are under-dotted.
 - These are set up automatically for you as soon as the buffer is attached to an
   LSP client.
-- To disable the highlights feature, set `vim.g.dr_lsp_no_highlight = true`
-  before loading the plugin.
 - The time for the highlights to show up depends on the [updatetime
   option](https://neovim.io/doc/user/options.html#'updatetime'). It's
   recommended to set it to something like 300&nbsp;ms.
 
-## Definition and reference count in the statusbar
+> [!NOTE]
+> In a previous version of this plugin, the highlights were enabled
+> automatically. Now, the highlights are only enabled when the `.setup()` call
+> is made.
 
+## Statusline: Definition and reference count
 Definitions and references **inside** current buffer:
 
 ```text

@@ -1,15 +1,10 @@
-if vim.g.dr_lsp_no_highlight then return end
---------------------------------------------------------------------------------
-
-local activeOnBufs = {}
-
 ---@param bufnr? integer
 local function setupLspCursorword(bufnr)
 	if not bufnr then bufnr = vim.api.nvim_get_current_buf() end
-	if activeOnBufs[bufnr] then return end -- GUARD ensure idempotency
+	if vim.b[bufnr].LspCursorWordActive then return end -- GUARD ensure idempotency
 
 	local group = vim.api.nvim_create_augroup("LspCursorWord", {})
-	activeOnBufs[bufnr] = group
+	vim.b[bufnr].LspCursorWordActive = group
 
 	vim.api.nvim_create_autocmd("CursorHold", {
 		callback = vim.lsp.buf.document_highlight,
@@ -27,7 +22,7 @@ local function setupLspCursorword(bufnr)
 			vim.lsp.buf.clear_references()
 			local deleted = pcall(vim.api.nvim_del_augroup_by_id, group)
 			if deleted then
-				activeOnBufs[bufnr] = nil
+				vim.b[bufnr].LspCursorWordActive = false
 				return true -- delete this autocmd itself on success
 			end
 		end,
@@ -70,7 +65,7 @@ setupHighlights() -- initialization
 
 --------------------------------------------------------------------------------
 -- PAUSE HIGHLIGHTS WHEN IN SPECIAL WINDOWS
--- FIX: For plugins using backdrop-like effects, there is some winblend bug,
+-- FIX For plugins using backdrop-like effects, there is some winblend bug,
 -- which causes the underlines to be displayed in ugly red. We fix this by
 -- temporarily disabling the underline effects set by this plugin.
 local function toggleHighlights()
