@@ -59,15 +59,12 @@ end
 ---@nodiscard
 function M.lspCountTable()
 	-- GUARD
-	local bufClients = vim.lsp.get_clients { bufnr = 0 }
-	local lspProgress = vim.lsp.status()
-	local lspLoading = lspProgress:find("[Ll]oad")
 	local lspCapable = false
-	for _, client in pairs(bufClients) do
+	for _, client in pairs(vim.lsp.get_clients { bufnr = 0 }) do
 		local capable = client.server_capabilities or {}
 		if capable.referencesProvider and capable.definitionProvider then lspCapable = true end
 	end
-	if vim.fn.mode() ~= "n" or lspLoading or not lspCapable then return end
+	if vim.fn.mode() ~= "n" or not lspCapable then return end
 
 	-- trigger count, needs to be separated due to lsp calls being async
 	requestLspRefCount()
