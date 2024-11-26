@@ -1,6 +1,18 @@
 *nvim-dr-lsp.txt*           For Neovim           Last change: 2024 November 26
 
 ==============================================================================
+Table of Contents                              *nvim-dr-lsp-table-of-contents*
+
+1. nvim-dr-lsp ‍‍                         |nvim-dr-lsp-nvim-dr-lsp-‍‍|
+  - Installation                 |nvim-dr-lsp-nvim-dr-lsp-‍‍-installation|
+  - Configuration               |nvim-dr-lsp-nvim-dr-lsp-‍‍-configuration|
+  - Highlight references for the word under the cursor|nvim-dr-lsp-nvim-dr-lsp-‍‍-highlight-references-for-the-word-under-the-cursor|
+  - Statusline: definition and reference count|nvim-dr-lsp-nvim-dr-lsp-‍‍-statusline:-definition-and-reference-count|
+  - Similar Plugins           |nvim-dr-lsp-nvim-dr-lsp-‍‍-similar-plugins|
+  - Credits                           |nvim-dr-lsp-nvim-dr-lsp-‍‍-credits|
+2. Links                                                   |nvim-dr-lsp-links|
+
+==============================================================================
 1. nvim-dr-lsp ‍‍                         *nvim-dr-lsp-nvim-dr-lsp-‍‍*
 
 
