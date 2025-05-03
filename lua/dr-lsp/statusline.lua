@@ -23,8 +23,13 @@ local function requestLspRefCount()
 		lspCount = vim.deepcopy(nullCount)
 		return
 	end
-	local params = vim.lsp.util.make_position_params(0)
-	params.context = { includeDeclaration = false }
+
+	local client = vim.lsp.get_clients({ method = "textDocument/references", bufnr = 0 })[1]
+	if not client then return end
+
+	local params = vim.lsp.util.make_position_params(0, client.offset_encoding)
+	params.context = { includeDeclaration = true } ---@diagnostic disable-line: inject-field
+
 	local thisFileUri = vim.uri_from_fname(vim.api.nvim_buf_get_name(0))
 
 	vim.lsp.buf_request(0, "textDocument/references", params, function(error, refs)
