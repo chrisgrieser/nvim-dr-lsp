@@ -1,4 +1,4 @@
-*nvim-dr-lsp.txt*            For Neovim            Last change: 2025 August 26
+*nvim-dr-lsp.txt*            For Neovim           Last change: 2025 October 13
 
 ==============================================================================
 Table of Contents                              *nvim-dr-lsp-table-of-contents*
@@ -107,7 +107,7 @@ Definitions or references **outside** current buffer
 There are no built-in options to format the components, since formatting can
 already be done with most statusline plugins. With `Lualine`, for example, you
 can use the `fmt` option
-<https://github.com/nvim-lualine/lualine.nvim#global-options>
+<https://github.com/nvim-lualine/lualine.nvim#global-options>:
 
 >lua
     lualine_c = {
@@ -119,7 +119,7 @@ can use the `fmt` option
     },
 <
 
-Alternatively,`require("dr-lsp").lspCountTable()` returns the `lspCount`
+Alternatively, `require("dr-lsp").lspCountTable()` returns the `lspCount`
 information as lua table for custom formatting:
 
 >lua
